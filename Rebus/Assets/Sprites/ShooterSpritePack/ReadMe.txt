@@ -1,0 +1,3 @@
+For best quality set "Filter Mode" on the sprites to "Point (no filter)".
+
+Only edited files under Sprites

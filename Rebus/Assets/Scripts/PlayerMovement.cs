@@ -5,50 +5,91 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //movement of the player 
-    public bool moving = false;
-    float speed = 5.0f;
+    private bool playerMoving = false;
+    private float currentMoveSpeed;
+    public float moveSpeed = 5.0f;
+
+    //for animation of the player
+    private Animator anim;
+    private Rigidbody2D myRigidbody;
+    public Vector2 lastMove;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
+        myRigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        movement();
+
+        if(playerMoving == true)
+        {
+            movement();
+        }
+        
+        //check if player is idle
+        movementCheck();
+       
     }
 
+    //set moving to true
+    public void setMoving(bool moving)
+    {
+        playerMoving = moving;
+    }
     void movement()
     {
-        if(Input.GetKey(KeyCode.W))
+        playerMoving = false;
+        //horizontal
+        if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f)
         {
-            transform.Translate(Vector3.up * speed * Time.deltaTime, Space.World);
-            moving = true;
+            //transform.Translate(new Vector3(Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime, 0f, 0f));
+            //collision
+            myRigidbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, myRigidbody.velocity.y);
+            playerMoving = true;
+            lastMove = new Vector2(Input.GetAxisRaw("Horizontal"), 0f);
+        }
+        //vertical 
+        else if (Input.GetAxisRaw("Vertical") > 0.5f || Input.GetAxisRaw("Vertical") < -0.5f)
+        {
+            //transform.Translate(new Vector3(0f, Input.GetAxisRaw("Vertical") * moveSpeed * Time.deltaTime,0f));
+            //collision
+            myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, Input.GetAxisRaw("Vertical") * moveSpeed);
+            playerMoving = true;
+            lastMove = new Vector2(0f, Input.GetAxisRaw("Vertical"));
         }
 
-        if(Input.GetKey(KeyCode.S))
+        if (Input.GetAxisRaw("Horizontal") < 0.5f && Input.GetAxisRaw("Horizontal") > -0.5f)
         {
-            transform.Translate(Vector3.down * speed * Time.deltaTime, Space.World);
-            moving = true;
+            myRigidbody.velocity = new Vector2(0f, myRigidbody.velocity.y);
+        }
+        if (Input.GetAxisRaw("Vertical") < 0.5f && Input.GetAxisRaw("Vertical") > -0.5f)
+        {
+
+            //collision
+            myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, 0f);
         }
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(Vector3.left * speed * Time.deltaTime, Space.World);
-            moving = true;
-        }
+        anim.SetFloat("MoveX", Input.GetAxisRaw("Horizontal"));
+        anim.SetFloat("MoveY", Input.GetAxisRaw("Vertical"));
+        anim.SetBool("PlayerMoving", playerMoving);
+        anim.SetFloat("LastMoveX", lastMove.x);
+        anim.SetFloat("LastMoveY", lastMove.y);
+    }
 
-        if (Input.GetKey(KeyCode.D))
+    //check for movement
+    void movementCheck()
+    {
+        if((Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f) != true && (Input.GetAxisRaw("Vertical") > 0.5f || Input.GetAxisRaw("Vertical") < -0.5f) != true)
         {
-            transform.Translate(Vector3.right * speed * Time.deltaTime, Space.World);
-            moving = true;
+            playerMoving = false;
         }
-
-        if(Input.GetKey(KeyCode.D) != true && Input.GetKey(KeyCode.A) != true && Input.GetKey(KeyCode.S) != true && Input.GetKey(KeyCode.W) != true)
+        else
         {
-            moving = false;
+            playerMoving = true;
         }
     }
 }

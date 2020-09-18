@@ -4,23 +4,43 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    GameObject player;
-    bool followPlayer = true;
+    public GameObject player;
+    public bool followPlayer = true;
+    PlayerMovement playerMovement;
+    Camera cam;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        playerMovement = player.GetComponent<PlayerMovement>();
+        cam = Camera.main;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        //this allows players to look ahead of the map
+        if(Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+        {
+            followPlayer = false;
+            playerMovement.setMoving(false);
+        }
+        else
+        {
+            followPlayer = true;
+        }
         if(followPlayer == true)
         {
             camFollowPlayer();
         }
+        else
+        {
+            aheadControl();
+        }
     }
 
+    //set playermovement as true after going ahead
     public void setFollowPlayer(bool val)
     {
         followPlayer = val;
@@ -30,5 +50,23 @@ public class CameraController : MonoBehaviour
     {
         Vector3 newPos = new Vector3(player.transform.position.x, player.transform.position.y, this.transform.position.z);
         this.transform.position = newPos;
+    }
+
+    void aheadControl()
+    {
+        //allows the camera to move
+        Vector3 cameraPos = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y));
+        //limits the range of the player when looking ahead
+        cameraPos.z = -10;
+
+        //we get a direction to where the mouse
+        Vector3 direction = cameraPos - this.transform.position;
+        
+        //this basically states if the player is visible 
+        if(player.GetComponent<SpriteRenderer>().isVisible == true)
+        {
+            //then it will move the camera in the direction of the mouse
+            transform.Translate(direction * 2 * Time.deltaTime);
+        }
     }
 }

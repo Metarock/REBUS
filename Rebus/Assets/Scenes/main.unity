@@ -348,7 +348,7 @@ Rigidbody2D:
   m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -377,7 +377,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  mousePos: {x: 0, y: 0, z: 0}
   lastMove: {x: 0, y: 0}
+  posDif: {x: 0, y: 0}
 --- !u!212 &1215157175
 SpriteRenderer:
   m_ObjectHideFlags: 0

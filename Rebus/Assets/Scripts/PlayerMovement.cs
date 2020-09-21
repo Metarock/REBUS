@@ -5,14 +5,18 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //movement of the player 
-    private bool playerMoving = false;
+    private bool playerMoving;
     private float currentMoveSpeed;
     public float moveSpeed = 5.0f;
+    private float diagonalMove = 0.75f;
+    public Vector3 mousePos;
 
     //for animation of the player
     private Animator anim;
     private Rigidbody2D myRigidbody;
     public Vector2 lastMove;
+    public Vector2 posDif;
+    private Vector2 movedir;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
-        if(playerMoving == true)
+        if (playerMoving == true)
         {
             movement();
         }
@@ -40,26 +44,37 @@ public class PlayerMovement : MonoBehaviour
     {
         playerMoving = moving;
     }
+
     void movement()
     {
         playerMoving = false;
+
+
+        float moveX = Input.GetAxis("Horizontal");
+        float moveY = Input.GetAxis("Vertical");
+
+        movedir = new Vector2(moveX, moveY).normalized;
+
         //horizontal
         if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f)
         {
             //transform.Translate(new Vector3(Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime, 0f, 0f));
             //collision
-            myRigidbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, myRigidbody.velocity.y);
+            myRigidbody.velocity = new Vector2(movedir.x * moveSpeed, movedir.y * moveSpeed);
             playerMoving = true;
             lastMove = new Vector2(Input.GetAxisRaw("Horizontal"), 0f);
+            // lastMove = (mouseScreenPosition - (Vector2)transform.position).normalized;
         }
         //vertical 
         else if (Input.GetAxisRaw("Vertical") > 0.5f || Input.GetAxisRaw("Vertical") < -0.5f)
         {
             //transform.Translate(new Vector3(0f, Input.GetAxisRaw("Vertical") * moveSpeed * Time.deltaTime,0f));
             //collision
-            myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, Input.GetAxisRaw("Vertical") * moveSpeed);
+            myRigidbody.velocity = new Vector2(movedir.x * moveSpeed, movedir.y * moveSpeed);
             playerMoving = true;
             lastMove = new Vector2(0f, Input.GetAxisRaw("Vertical"));
+
+            //  lastMove = (mouseScreenPosition - (Vector2)transform.position).normalized;
         }
 
         if (Input.GetAxisRaw("Horizontal") < 0.5f && Input.GetAxisRaw("Horizontal") > -0.5f)

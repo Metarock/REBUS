@@ -3,6 +3,8 @@
 20/9/20
 
 Assets that were updated:
+- Office layout
+=======
 - Cursor direction
 - Animation
 
@@ -12,3 +14,4 @@ Animation:
 Rotate Script:
 - Fixed the rotation
 - Updated the code wherein, the character will look the cursor position's / direction. 
+

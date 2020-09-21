@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class PlayerHealthDamager : MonoBehaviour
 {
+    public int damageToPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,10 @@ public class Health : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        other.gameObject.getComponent<PlayerHealthManager>().PlayerIsDamaged(damageToPlayer);
     }
 }

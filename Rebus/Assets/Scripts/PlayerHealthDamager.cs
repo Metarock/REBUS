@@ -20,6 +20,9 @@ public class PlayerHealthDamager : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        other.gameObject.GetComponent<PlayerHealthManager>().PlayerIsDamaged(damageToPlayer);
+        if(other.gameObject.name == "Player")
+        {
+            other.gameObject.GetComponent<PlayerHealthManager>().PlayerIsDamaged(damageToPlayer);
+        }
     }
 }

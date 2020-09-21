@@ -18,10 +18,10 @@ public class RotateScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        cursorDireciton();
+        cursorDirection();
     }
 
-    void cursorDireciton()
+    void cursorDirection()
     {
         mousePos = Input.mousePosition;
         mousePos = Camera.main.ScreenToWorldPoint(mousePos);

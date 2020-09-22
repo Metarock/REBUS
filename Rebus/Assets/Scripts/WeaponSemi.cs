@@ -6,7 +6,7 @@ public class WeaponSemi : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
-    public float bulletForce = 50f;
+    public float bulletForce = 70f;
     // Cooldown per shot
     private bool cooldown = false;
 

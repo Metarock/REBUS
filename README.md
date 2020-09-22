@@ -1,17 +1,10 @@
 # REBUS
 2D RPG development game
-20/9/20
+21/9/20
 
 Assets that were updated:
-- Office layout
-=======
-- Cursor direction
 - Animation
-
-Animation:
-- Removed player animation, leaving one animation for player movement
-
-Rotate Script:
-- Fixed the rotation
-- Updated the code wherein, the character will look the cursor position's / direction. 
-
+  - Idle animation, player does not jitter around
+  
+- Player movement script
+  - Fixed the problem with WASD movements when character moves diagonally.

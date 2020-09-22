@@ -7,35 +7,28 @@ public class WeaponAuto : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
-    public float bulletForce = 100f;
+    public float bulletForce = 50f;
+    // Cooldown per shot
+    private bool cooldown = false;
 
-    // Update is called once per frame
     void Update()
     {
-
-        // For shooting
-        if (Input.GetButton("Fire1"))
+        if (cooldown == false)
         {
-
-            Shoot();
-            // Cancel any shoot() method
-            CancelInvoke("Shoot");
+            if (Input.GetButton("Fire1"))
+            {
+                Shoot();
+                // This prevents the player from spamming the automatic gun. Shoots every 0.03 seconds.
+                Invoke(nameof(ResetCooldown), 0.03f);
+                cooldown = true;
+            }
 
         }
+    }
 
-        // While the "Fire1" Button is held down
-        if (Input.GetButton("Fire1") && !IsInvoking("Shoot"))
-        {
-            //Execute the Shoot() Method in the next 'number of' seconds
-            Invoke("Shoot", 2f);
-        }
-
-        // If "Fire1" is released, cancel any scheduled Shoot() method exec.
-        if (Input.GetButtonUp("Fire1"))
-        {
-            //Cancel any Shoot() method code execution
-            CancelInvoke("Shoot");
-        }
+    void ResetCooldown()
+    {
+        cooldown = false;
     }
 
     void Shoot()

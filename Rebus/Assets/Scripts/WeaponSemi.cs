@@ -6,19 +6,28 @@ public class WeaponSemi : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
-    // Fire Rate of the Bullet
-    public float fireRate;
-    public float bulletForce = 30f;
+    public float bulletForce = 50f;
+    // Cooldown per shot
+    private bool cooldown = false;
 
-    // Update is called once per frame
     void Update()
     {
-
-        // For shooting
-        if (Input.GetButtonDown("Fire1"))
+        if (cooldown == false)
         {
-            Shoot();           
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Shoot();
+                // This prevents the player from spamming the semi-automatic gun. Shoots every 0.4 seconds.
+                Invoke(nameof(ResetCooldown), 0.4f);
+                cooldown = true;
+            }
+
         }
+    }
+
+    void ResetCooldown()
+    {
+        cooldown = false;
     }
 
     void Shoot()

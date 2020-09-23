@@ -7,6 +7,10 @@ public class CameraController : MonoBehaviour
     public GameObject player;
     public bool followPlayer = true;
     PlayerMovement playerMovement;
+
+    Camera cam;
+
+
     private Camera cam;
 
     //Camera boundary
@@ -16,6 +20,7 @@ public class CameraController : MonoBehaviour
 
     private float halfHeight;
     private float halfWidth;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,12 +29,14 @@ public class CameraController : MonoBehaviour
         cam = GetComponent<Camera>();
         cam = Camera.main;
 
+
         //camera boundaries
         minBounds = boundBox.bounds.min;
         maxBounds = boundBox.bounds.max;
 
         halfHeight = cam.orthographicSize;
         halfWidth = halfHeight * Screen.width / Screen.height;
+
     }
 
     // Update is called once per frame

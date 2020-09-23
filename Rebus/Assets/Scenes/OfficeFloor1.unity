@@ -14619,6 +14619,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedWeapon: 0
+
+  selectedPlayer: {fileID: 0}
+
 --- !u!1001 &2306165914065055032
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14709,3 +14712,4 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2306165914065055032}
   m_PrefabAsset: {fileID: 0}
+

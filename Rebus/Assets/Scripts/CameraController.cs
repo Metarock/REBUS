@@ -10,9 +10,6 @@ public class CameraController : MonoBehaviour
 
     Camera cam;
 
-
-    private Camera cam;
-
     //Camera boundary
     public BoxCollider2D boundBox;
     private Vector3 minBounds;

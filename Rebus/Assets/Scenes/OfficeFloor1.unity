@@ -4854,7 +4854,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1509027491}
   followPlayer: 1
-  boundBox: {fileID: 1118231406}
+  boundBox: {fileID: 0}
 --- !u!81 &390844287
 AudioListener:
   m_ObjectHideFlags: 0
@@ -14619,9 +14619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedWeapon: 0
-
   selectedPlayer: {fileID: 0}
-
 --- !u!1001 &2306165914065055032
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14699,6 +14697,26 @@ PrefabInstance:
       propertyPath: firePoint
       value: 
       objectReference: {fileID: 1870472950}
+    - target: {fileID: 2306165914065055039, guid: 34665eff63155a54bba1e04d92c320ea,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.02199495
+      objectReference: {fileID: 0}
+    - target: {fileID: 2306165914065055039, guid: 34665eff63155a54bba1e04d92c320ea,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.3827241
+      objectReference: {fileID: 0}
+    - target: {fileID: 2306165914065055039, guid: 34665eff63155a54bba1e04d92c320ea,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.180284
+      objectReference: {fileID: 0}
+    - target: {fileID: 2306165914065055039, guid: 34665eff63155a54bba1e04d92c320ea,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.118687
+      objectReference: {fileID: 0}
     - target: {fileID: 3083913869148394981, guid: 34665eff63155a54bba1e04d92c320ea,
         type: 3}
       propertyPath: m_Name
@@ -14712,4 +14730,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2306165914065055032}
   m_PrefabAsset: {fileID: 0}
-

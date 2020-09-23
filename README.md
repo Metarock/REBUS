@@ -1,10 +1,19 @@
 # REBUS
 2D RPG development game
-21/9/20
+20/9/20
 
 Assets that were updated:
+- Office layout
+=======
 - Animation
-  - Idle animation, player does not jitter around
-  
-- Player movement script
-  - Fixed the problem with WASD movements when character moves diagonally.
+
+Animation:
+- Added player movement UZI 
+
+Camera:
+- Updated the camera script, wherein the camera is only bound to the map 
+
+
+Weapon Firing:
+- NEEDS TO BE FIXED, the firing rate for Weapon UZI seems to be bugged out. 
+

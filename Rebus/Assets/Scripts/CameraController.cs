@@ -20,8 +20,10 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+
         //this allows players to look ahead of the map
-        if(Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
         {
             followPlayer = false;
             playerMovement.setMoving(false);

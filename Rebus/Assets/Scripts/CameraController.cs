@@ -7,14 +7,29 @@ public class CameraController : MonoBehaviour
     public GameObject player;
     public bool followPlayer = true;
     PlayerMovement playerMovement;
-    Camera cam;
+    private Camera cam;
+
+    //Camera boundary
+    public BoxCollider2D boundBox;
+    private Vector3 minBounds;
+    private Vector3 maxBounds;
+
+    private float halfHeight;
+    private float halfWidth;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerMovement = player.GetComponent<PlayerMovement>();
+        cam = GetComponent<Camera>();
         cam = Camera.main;
 
+        //camera boundaries
+        minBounds = boundBox.bounds.min;
+        maxBounds = boundBox.bounds.max;
+
+        halfHeight = cam.orthographicSize;
+        halfWidth = halfHeight * Screen.width / Screen.height;
     }
 
     // Update is called once per frame
@@ -40,6 +55,11 @@ public class CameraController : MonoBehaviour
         {
             aheadControl();
         }
+
+        //getting camera size and limiting it to the map vision
+        float clampedX = Mathf.Clamp(transform.position.x, minBounds.x + halfWidth, maxBounds.x - halfWidth);
+        float clampedY = Mathf.Clamp(transform.position.y, minBounds.y + halfWidth, maxBounds.y - halfHeight);
+        transform.position = new Vector3(clampedX, clampedY, transform.position.z);
     }
 
     //set playermovement as true after going ahead

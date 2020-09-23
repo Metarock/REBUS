@@ -14534,3 +14534,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedWeapon: 0
+  selectedPlayer: {fileID: 0}

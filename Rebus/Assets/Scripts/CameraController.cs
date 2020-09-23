@@ -8,8 +8,6 @@ public class CameraController : MonoBehaviour
     public bool followPlayer = true;
     PlayerMovement playerMovement;
 
-    Camera cam;
-
 
     private Camera cam;
 

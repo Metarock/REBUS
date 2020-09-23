@@ -14523,6 +14523,28 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 427434580}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1495051677 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 35182004256055296, guid: 328e032bd9fbe5f45b1ad011e7916748,
+    type: 3}
+  m_PrefabInstance: {fileID: 1945473940}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1495051678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495051677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d89024e4645c7145bf457307a861cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 1866545253}
+  bulletPrefab: {fileID: 3628130046035797740, guid: fb519f6ef31c7e446bf9ca68a488b9af,
+    type: 3}
+  bulletForce: 30
 --- !u!1 &1509027491
 GameObject:
   m_ObjectHideFlags: 0
@@ -14634,7 +14656,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1778703708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.72, y: -13.71, z: 0}
+  m_LocalPosition: {x: 9.07, y: -7.09, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children:
   - {fileID: 1945473941}
@@ -14720,6 +14742,12 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.180284, y: 1.118687}
   m_EdgeRadius: 0
+--- !u!4 &1866545253 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 35182004578073589, guid: 328e032bd9fbe5f45b1ad011e7916748,
+    type: 3}
+  m_PrefabInstance: {fileID: 1945473940}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1945473940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14730,7 +14758,7 @@ PrefabInstance:
     - target: {fileID: 35182004256055296, guid: 328e032bd9fbe5f45b1ad011e7916748,
         type: 3}
       propertyPath: m_Name
-      value: Player_Pistol
+      value: Enemy_Pistol
       objectReference: {fileID: 0}
     - target: {fileID: 35182004256055296, guid: 328e032bd9fbe5f45b1ad011e7916748,
         type: 3}
@@ -14797,12 +14825,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3155272102478777721, guid: 328e032bd9fbe5f45b1ad011e7916748,
+        type: 3}
+      propertyPath: bulletForce
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 35182004256055302, guid: 328e032bd9fbe5f45b1ad011e7916748, type: 3}
     - {fileID: 5340390372674492469, guid: 328e032bd9fbe5f45b1ad011e7916748, type: 3}
     - {fileID: 35182004256055301, guid: 328e032bd9fbe5f45b1ad011e7916748, type: 3}
     - {fileID: 35182004256055299, guid: 328e032bd9fbe5f45b1ad011e7916748, type: 3}
     - {fileID: 35182004256055300, guid: 328e032bd9fbe5f45b1ad011e7916748, type: 3}
+    - {fileID: 3155272102478777721, guid: 328e032bd9fbe5f45b1ad011e7916748, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 328e032bd9fbe5f45b1ad011e7916748, type: 3}
 --- !u!4 &1945473941 stripped
 Transform:

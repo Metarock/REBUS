@@ -6,7 +6,6 @@ public class PlayerMovement : MonoBehaviour
 {
     //movement of the player 
     private bool playerMoving;
-    private float currentMoveSpeed;
     public float moveSpeed = 5.0f;
     public Vector3 mousePos;
 
@@ -20,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 posDif;
     private Vector2 movedir;
 
+
+    public float moveX;
+    public float moveY;
     // Start is called before the first frame update
     void Start()
     {
@@ -72,6 +74,13 @@ public class PlayerMovement : MonoBehaviour
         playerMoving = moving;
     }
 
+    void processInputs()
+    {
+        moveX = Input.GetAxis("Horizontal");
+        moveY = Input.GetAxis("Vertical");
+
+        movedir = new Vector2(moveX, moveY).normalized;
+    }
     void movement()
     {
         playerMoving = false;
@@ -80,6 +89,11 @@ public class PlayerMovement : MonoBehaviour
         float moveY = Input.GetAxis("Vertical");
 
         movedir = new Vector2(moveX, moveY).normalized;
+
+
+        
+
+        processInputs();
 
         //horizontal
         if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f)

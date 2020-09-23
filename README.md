@@ -5,24 +5,15 @@
 Assets that were updated:
 - Office layout
 =======
-- Cursor direction
 - Animation
 
 Animation:
-- Removed player animation, leaving one animation for player movement
+- Added player movement UZI 
 
-Rotate Script:
-- Fixed the rotation
-- Updated the code wherein, the character will look the cursor position's / direction. 
+Camera:
+- Updated the camera script, wherein the camera is only bound to the map 
+
 
 Weapon Firing:
-- Added Sprites of Player holding a Pistol as well as the Firing Scripts.
-- Scripts Updated/Added Include:
-	1. Bullet
-	2. WeaponSemi
-	3. WeaponAuto
-	4. WeaponPickup
-	5. WeaponShotgun
-	5. Pistol
-
+- NEEDS TO BE FIXED, the firing rate for Weapon UZI seems to be bugged out. 
 

@@ -13,12 +13,14 @@ public class EnemyWeapon : MonoBehaviour
     void Update()
     {
         if (cooldown == false)
-        {				
-            
+        {
+           
                 Shoot();
-                // This prevents the player from spamming the semi-automatic gun. Shoots every 0.4 seconds.
-                Invoke(nameof(ResetCooldown), 0.4f);
+                // This prevents the player from spamming the semi-automatic gun. Shoots every 1.4 seconds.
+                Invoke(nameof(ResetCooldown), 1.4f);
                 cooldown = true;
+                
+                
             
 
         }

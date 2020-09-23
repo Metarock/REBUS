@@ -13,14 +13,14 @@ public class Enemy : MonoBehaviour
 {
     Rigidbody2D rb;
     Animator anim;
-    float dirX, dirY, moveMentSpeed = 2f;
+    float dirX, dirY, moveMentSpeed = 0;
     bool isExploded, isDead;
     bool isLeaning, isProning;
     bool facingRight = true;
     Vector3 localScale;
     public GameObject target;
 
-
+    private float speed = 0.5f;
 
 
     // Start is called before the first frame update
@@ -31,60 +31,62 @@ public class Enemy : MonoBehaviour
         localScale = transform.localScale;
         target = GameObject.FindGameObjectWithTag("Player");
 
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Console.WriteLine(target.transform.position);
+        // Console.WriteLine(target.transform.position);
 
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            //hold left shifht for speed up and use a or d to move left or right
-            moveMentSpeed = 4f;
-        }
-        else if (Input.GetKeyDown(KeyCode.E))
-        {
-            isExploded = true;
-        }
-        else if (Input.GetKeyDown(KeyCode.R))
-        {
-            isDead = true;
-        }
-        else if (Input.GetKeyDown(KeyCode.Z))
-        {
-            if (isProning)
-            {
-                isProning = false;
-            }
-            else
-            {
-                isProning = true;
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.L))
-        {
-            if (isLeaning)
-            {
-                isLeaning = false;
-            }
-            else
-            {
-                isLeaning = true;
-            }
-        }
-        else
-        {
-            moveMentSpeed = 2f;
-        }
+        // if (Input.GetKey(KeyCode.LeftShift))
+        // {
+        //     hold left shifht for speed up and use a or d to move left or right
+        //     moveMentSpeed = 4f;
+        // }
+        // else if (Input.GetKeyDown(KeyCode.E))
+        // {
+        //     isExploded = true;
+        // }
+        // else if (Input.GetKeyDown(KeyCode.R))
+        // {
+        //     isDead = true;
+        // }
+        // else if (Input.GetKeyDown(KeyCode.Z))
+        // {
+        //     if (isProning)
+        //     {
+        //         isProning = false;
+        //     }
+        //     else
+        //     {
+        //         isProning = true;
+        //     }
+        // }
+        // else if (Input.GetKeyDown(KeyCode.L))
+        // {
+        //     if (isLeaning)
+        //     {
+        //         isLeaning = false;
+        //     }
+        //     else
+        //     {
+        //         isLeaning = true;
+        //     }
+        // }
+        // else
+        // {
+        //     moveMentSpeed = 2f;
+        // }
+        float step = speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
 
         SetAnimationState();
-        if (!isDead && !isLeaning && !isExploded && !isProning)
-        {
-            dirX = Input.GetAxisRaw("Horizontal") * moveMentSpeed;
-            dirY = Input.GetAxisRaw("Vertical") * moveMentSpeed;
-        }
+        // if (!isDead && !isLeaning && !isExploded && !isProning)
+        // {
+        //     dirX = Input.GetAxisRaw("Horizontal") * moveMentSpeed;
+        //     dirY = Input.GetAxisRaw("Vertical") * moveMentSpeed;
+        // }
     }
 
     void FixedUpdate()
@@ -96,29 +98,29 @@ public class Enemy : MonoBehaviour
     }
     void LateUpdate()
     {
-        CheckFace();
+        //CheckFace();
         ShootingAI();
     }
 
     void SetAnimationState()
     {
-        if (dirX == 0 && dirY == 0)
+        if (transform.position.x == 0 && transform.position.y == 0)
         {
             anim.SetBool("isWalking", false);
             anim.SetBool("isRunning", false);
         }
 
-        if (Mathf.Abs(dirX) == 2 || Mathf.Abs(dirY) == 2)
-        {
-            anim.SetBool("isWalking", true);
-        }
-        if (Mathf.Abs(dirX) == 4 || Mathf.Abs(dirY) == 4)
+
+        else if (speed == 1f)
         {
             anim.SetBool("isRunning", true);
+            anim.SetBool("isWaling", false);
         }
         else
         {
             anim.SetBool("isRunning", false);
+            anim.SetBool("isWaling", true);
+
 
         }
         if (isDead)
@@ -185,7 +187,7 @@ public class Enemy : MonoBehaviour
     {
 
         Vector3 dir = target.transform.position - transform.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
     }

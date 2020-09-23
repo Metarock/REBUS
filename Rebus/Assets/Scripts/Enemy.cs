@@ -114,12 +114,12 @@ public class Enemy : MonoBehaviour
         else if (speed == 1f)
         {
             anim.SetBool("isRunning", true);
-            anim.SetBool("isWaling", false);
+            anim.SetBool("isWalking", false);
         }
         else
         {
             anim.SetBool("isRunning", false);
-            anim.SetBool("isWaling", true);
+            anim.SetBool("isWalking", true);
 
 
         }

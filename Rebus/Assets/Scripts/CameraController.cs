@@ -48,8 +48,8 @@ public class CameraController : MonoBehaviour
 
     void camFollowPlayer()
     {
-        Vector3 newPos = new Vector3(player.transform.position.x, player.transform.position.y, this.transform.position.z);
-        this.transform.position = newPos;
+        Vector3 newPos = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
+        transform.position = newPos;
     }
 
     void aheadControl()
@@ -60,7 +60,7 @@ public class CameraController : MonoBehaviour
         cameraPos.z = -10;
 
         //we get a direction to where the mouse
-        Vector3 direction = cameraPos - this.transform.position;
+        Vector3 direction = cameraPos - transform.position;
         
         //this basically states if the player is visible 
         if(player.GetComponent<SpriteRenderer>().isVisible == true)

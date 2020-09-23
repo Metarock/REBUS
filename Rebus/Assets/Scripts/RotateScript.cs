@@ -8,6 +8,7 @@ public class RotateScript : MonoBehaviour
     Vector2 direction;
     Camera cam;
     Rigidbody2D rid;
+    Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,7 @@ public class RotateScript : MonoBehaviour
         direction = new Vector2(mousePos.x - transform.position.x, mousePos.y - transform.position.y);
 
         transform.up = direction;
+
     }
 
     //previous cursor 

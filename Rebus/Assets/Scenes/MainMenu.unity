@@ -673,6 +673,24 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: pistolShot
+    clip: {fileID: 8300000, guid: bf88d659e449aa544b9bb23f262a1e30, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: shotgunShot
+    clip: {fileID: 8300000, guid: ff740635bbc607a47b09d0475dde3c31, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: uziShot
+    clip: {fileID: 8300000, guid: bf88d659e449aa544b9bb23f262a1e30, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &344697367
 Transform:
   m_ObjectHideFlags: 0

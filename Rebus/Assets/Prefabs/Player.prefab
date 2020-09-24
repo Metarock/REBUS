@@ -125,6 +125,7 @@ MonoBehaviour:
   mousePos: {x: 0, y: 0, z: 0}
   lastMove: {x: 0, y: 0}
   posDif: {x: 0, y: 0}
+  startingPosition: {fileID: 11400000, guid: d8be4083a2d4cc1439c288a73211ed69, type: 2}
   moveX: 0
   moveY: 0
 --- !u!114 &1093995135439040146
@@ -432,6 +433,7 @@ MonoBehaviour:
   mousePos: {x: 0, y: 0, z: 0}
   lastMove: {x: 0, y: 0}
   posDif: {x: 0, y: 0}
+  startingPosition: {fileID: 11400000, guid: d8be4083a2d4cc1439c288a73211ed69, type: 2}
   moveX: 0
   moveY: 0
 --- !u!1 &1093995136111956782
@@ -662,6 +664,7 @@ MonoBehaviour:
   mousePos: {x: 0, y: 0, z: 0}
   lastMove: {x: 0, y: 0}
   posDif: {x: 0, y: 0}
+  startingPosition: {fileID: 11400000, guid: d8be4083a2d4cc1439c288a73211ed69, type: 2}
   moveX: 0
   moveY: 0
 --- !u!1 &1093995136820064858
@@ -781,6 +784,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1093995136895398568}
+  - component: {fileID: 1406234734548019320}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -803,6 +807,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1406234734548019320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093995136895398569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cceaa59661564a478d6c9742628aaa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingPosition: {fileID: 11400000, guid: d8be4083a2d4cc1439c288a73211ed69, type: 2}
 --- !u!1 &1093995137356569092
 GameObject:
   m_ObjectHideFlags: 0

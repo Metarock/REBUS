@@ -1,13 +1,9 @@
-﻿using UnityEngine.Audio;
-<<<<<<< HEAD
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
-=======
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
-using System;
-using UnityEngine;
->>>>>>> 1bf3c182e37c7f006a66bf03a16fc9015e9ea5ee
+
 
 public class AudioManager : MonoBehaviour
 {
@@ -15,7 +11,7 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
 
-<<<<<<< HEAD
+
     /*--------SANGGY NEW WORK -----------*/
     private static readonly string FirstPlay = "FirstPlay";
     private static readonly string BackgroundPref = "BackgroundPref";
@@ -28,8 +24,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource backgroundAudio;
     public AudioSource[] soundEffectsAudio;
     /*--------------------------*/
-=======
->>>>>>> 1bf3c182e37c7f006a66bf03a16fc9015e9ea5ee
+
     // Awake Function
     void Awake()
     {
@@ -60,7 +55,7 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-<<<<<<< HEAD
+
         Play("mainMenuTheme");
 
         /*-----------NEW THINGG---------------*/ 
@@ -115,18 +110,8 @@ public class AudioManager : MonoBehaviour
     }
 
     /*--------------------------*/
-=======
-        if(SceneManager.GetActiveScene().name == "MainMenu")
-        {
-            Play("mainMenuTheme");
-        }
-        else
-        {
-            Play("levelTheme");
-        }
-    }
 
->>>>>>> 1bf3c182e37c7f006a66bf03a16fc9015e9ea5ee
+
     public void Play(string name)
     {
         Sound s = Array.Find(soundArray, sound => sound.name == name);
@@ -161,7 +146,7 @@ public class AudioManager : MonoBehaviour
         s.source.Stop();
     }
 }
-<<<<<<< HEAD
+
 
 
 /*public Sound[] soundArray;
@@ -234,5 +219,3 @@ public void Stop(string name)
 
     s.source.Stop();
 }*/
-=======
->>>>>>> 1bf3c182e37c7f006a66bf03a16fc9015e9ea5ee

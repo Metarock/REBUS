@@ -1318,19 +1318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c279e374641f2394a97d9d72c6da525f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundArray:
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-    loop: 0
-    source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-    loop: 0
-    source: {fileID: 0}
+  soundArray: []
   backgroundSlider: {fileID: 6980288}
   soundEffectSlider: {fileID: 390461414}
   backgroundAudio: {fileID: 459756338}

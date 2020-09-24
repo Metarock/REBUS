@@ -8,6 +8,8 @@ public class MainMenu : MonoBehaviour
     //Function to start game (for PLAY button)
     public void PressPlay()
     {
+        FindObjectOfType<AudioManager>().Stop("mainMenuTheme");
+        FindObjectOfType<AudioManager>().Play("levelTheme");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

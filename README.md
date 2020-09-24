@@ -1,19 +1,12 @@
 # REBUS
 2D RPG development game
-20/9/20
+24/9/20
 
-Assets that were updated:
-- Office layout
-=======
-- Animation
+Assests that were updated
 
-Animation:
-- Added player movement UZI 
+Enemy object:
+- Fixed an issue when the game is played, the camera follows the enemy characters as well. 
 
-Camera:
-- Updated the camera script, wherein the camera is only bound to the map 
-
-
-Weapon Firing:
-- NEEDS TO BE FIXED, the firing rate for Weapon UZI seems to be bugged out. 
-
+THINGS TO BE ADDED:
+- More enemy sprite to help differentiate enemy and player 
+- More testing units

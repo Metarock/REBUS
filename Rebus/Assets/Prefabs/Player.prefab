@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1804511245343773494}
   - component: {fileID: 1804511245343773495}
+  - component: {fileID: 1584537090766326202}
   m_Layer: 0
   m_Name: CurrentWeapons
   m_TagString: Untagged
@@ -79,6 +80,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedWeapon: 0
   selectedPlayer: {fileID: 0}
+--- !u!114 &1584537090766326202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804511245343773489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7666b541d0aac5f45b96369003a8afb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMaxHealth: 100
+  playerCurrentHealth: 0
 --- !u!1001 &1804511245678178959
 PrefabInstance:
   m_ObjectHideFlags: 0

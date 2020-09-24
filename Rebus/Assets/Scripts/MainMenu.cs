@@ -5,11 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    private AudioManager audioManager;
+
+    void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
+
     //Function to start game (for PLAY button)
     public void PressPlay()
     {
-        FindObjectOfType<AudioManager>().Stop("mainMenuTheme");
-        FindObjectOfType<AudioManager>().Play("levelTheme");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -21,6 +26,6 @@ public class MainMenu : MonoBehaviour
 
     public void ButtonSound()
     {
-        AudioManager.instance.Play("buttonPress");
+        audioManager.buttonPress.Play();
     }
 }

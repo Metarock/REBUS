@@ -9,10 +9,9 @@ public class AudioManager : MonoBehaviour
 {
     public Sound[] soundArray;
 
-    public static AudioManager instance;
+    public static bool audioManagerExists;
 
-
-    /*--------SANGGY NEW WORK -----------*/
+    
     private static readonly string FirstPlay = "FirstPlay";
     private static readonly string BackgroundPref = "BackgroundPref";
     private static readonly string SoundEffectsPref = "SoundEffectsPref";
@@ -20,26 +19,29 @@ public class AudioManager : MonoBehaviour
     public Slider backgroundSlider, soundEffectSlider;
     private float backgroundFloat, soundEffectFloat;
 
+    //SOUND EFFECTS
+    public AudioSource pistolShot;
+    public AudioSource uziShot;
+    public AudioSource shotgunShot;
+    public AudioSource shotgunReload;
+    public AudioSource buttonPress;
 
     public AudioSource backgroundAudio;
     public AudioSource[] soundEffectsAudio;
-    /*--------------------------*/
 
     // Awake Function
     void Awake()
     {
         //For having only one instance of AudioManager
-        if(instance == null)
+        if(!audioManagerExists)
         {
-            instance = this;
+            audioManagerExists = true;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
-            return;
         }
-
-        DontDestroyOnLoad(gameObject);
 
         foreach (Sound s in soundArray)
         {
@@ -56,7 +58,7 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
 
-        Play("mainMenuTheme");
+        backgroundAudio.Play();
 
         /*-----------NEW THINGG---------------*/ 
         firstPlayInt = PlayerPrefs.GetInt(FirstPlay);
@@ -67,6 +69,7 @@ public class AudioManager : MonoBehaviour
             soundEffectFloat = .75f;
             backgroundSlider.value = backgroundFloat;
             soundEffectSlider.value = soundEffectFloat;
+
             //PlayerPrefs save values through different scenes and play session 
             PlayerPrefs.SetFloat(BackgroundPref, backgroundFloat);
             PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectFloat);
@@ -101,12 +104,15 @@ public class AudioManager : MonoBehaviour
     //UPDATES Slider value
     public void UpdateSound()
     {
-        backgroundAudio.volume = backgroundSlider.value;
-
         for(int i = 0; i < soundEffectsAudio.Length; i++)
         {
             soundEffectsAudio[i].volume = soundEffectSlider.value;
         }
+    }
+
+    public void UpdateBGM()
+    {
+        backgroundAudio.volume = backgroundSlider.value;
     }
 
     /*--------------------------*/
@@ -146,7 +152,6 @@ public class AudioManager : MonoBehaviour
         s.source.Stop();
     }
 }
-
 
 
 /*public Sound[] soundArray;

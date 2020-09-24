@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WeaponShotgun : MonoBehaviour
 {
+    private AudioManager audioManager;
+
     public Transform firePoint1;
     public Transform firePoint2;
     public Transform firePoint3;
@@ -13,6 +15,10 @@ public class WeaponShotgun : MonoBehaviour
     // Added cooldown per shot to prevent spamming
     private bool cooldown = false;
 
+    void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
 
     void Update()
     {
@@ -20,9 +26,9 @@ public class WeaponShotgun : MonoBehaviour
         {
             if (Input.GetButtonDown("Fire1"))
             {
-                FindObjectOfType<AudioManager>().Play("shotgunShot");
+                audioManager.shotgunShot.Play();
                 Shoot();
-                FindObjectOfType<AudioManager>().Play("shotgunReload");
+                audioManager.shotgunReload.Play();
                 // This prevents the player from spamming the shotgun. Shoots only once per second.
                 Invoke(nameof(ResetCooldown), 1f);
                 cooldown = true;

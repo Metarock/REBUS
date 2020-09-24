@@ -5,11 +5,18 @@ using UnityEngine;
 
 public class WeaponAuto : MonoBehaviour
 {
+    private AudioManager audioManager;
+
     public Transform firePoint;
     public GameObject bulletPrefab;
     public float bulletForce = 70f;
     // Cooldown per shot
     private bool cooldown = false;
+
+    void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
 
     void Update()
     {
@@ -17,7 +24,7 @@ public class WeaponAuto : MonoBehaviour
         {
             if (Input.GetButton("Fire1"))
             {
-                FindObjectOfType<AudioManager>().Play("uziShot");
+                audioManager.uziShot.Play();
                 Shoot();
                 // This prevents the player from spamming the automatic gun. Shoots every 0.03 seconds.
                 Invoke(nameof(ResetCooldown), 0.03f);

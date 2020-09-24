@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class WeaponSemi : MonoBehaviour
 {
+    private AudioManager audioManager;
+
     public Transform firePoint;
     public GameObject bulletPrefab;
     public float bulletForce = 70f;
     // Cooldown per shot
     private bool cooldown = false;
+
+    void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
 
     void Update()
     {
@@ -16,7 +23,7 @@ public class WeaponSemi : MonoBehaviour
         {
             if (Input.GetButtonDown("Fire1"))
             {
-                FindObjectOfType<AudioManager>().Play("pistolShot");
+                audioManager.pistolShot.Play();
                 Shoot();
                 // This prevents the player from spamming the semi-automatic gun. Shoots every 0.4 seconds.
                 Invoke(nameof(ResetCooldown), 0.4f);

@@ -22,7 +22,7 @@ public class LoadNewArea : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Untagged")
+        if (collision.gameObject.name == "Player")
         {
             SceneManager.LoadScene(levelToLoad);
         }

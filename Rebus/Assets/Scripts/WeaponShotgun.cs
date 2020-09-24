@@ -20,7 +20,9 @@ public class WeaponShotgun : MonoBehaviour
         {
             if (Input.GetButtonDown("Fire1"))
             {
+                FindObjectOfType<AudioManager>().Play("shotgunShot");
                 Shoot();
+                FindObjectOfType<AudioManager>().Play("shotgunReload");
                 // This prevents the player from spamming the shotgun. Shoots only once per second.
                 Invoke(nameof(ResetCooldown), 1f);
                 cooldown = true;

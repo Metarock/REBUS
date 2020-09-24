@@ -37,6 +37,8 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        target = GameObject.FindGameObjectWithTag("Player");
+
         // Console.WriteLine(target.transform.position);
 
         // if (Input.GetKey(KeyCode.LeftShift))

@@ -6,25 +6,18 @@ using UnityEngine.SceneManagement;
 public class LoadNewArea : MonoBehaviour
 {
 
-    public string levelToLoad;
+    public string sceneToLoad;
+    public Vector2 playerPosition;
+    public VectorValue playerStorageMemory;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        
-    }
-
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.name == "Untagged")
+        // If Player Tag is recognized, then it loads the selected scene
+        if (other.CompareTag("Player") && !other.isTrigger)
         {
-            SceneManager.LoadScene(levelToLoad);
+            playerStorageMemory.initialValues = playerPosition;
+            SceneManager.LoadScene(sceneToLoad);
         }
     }
 }

@@ -17,6 +17,7 @@ public class WeaponAuto : MonoBehaviour
         {
             if (Input.GetButton("Fire1"))
             {
+                FindObjectOfType<AudioManager>().Play("uziShot");
                 Shoot();
                 // This prevents the player from spamming the automatic gun. Shoots every 0.03 seconds.
                 Invoke(nameof(ResetCooldown), 0.03f);

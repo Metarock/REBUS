@@ -7,13 +7,13 @@ public class AudioManager : MonoBehaviour
 {
     public Sound[] soundArray;
 
-    //public static AudioManager instance;
+    public static AudioManager instance;
 
     // Awake Function
     void Awake()
     {
         //For having only one instance of AudioManager
-        /*if(instance == null)
+        if(instance == null)
         {
             instance = this;
         }
@@ -23,7 +23,7 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        DontDestroyOnLoad(gameObject);*/
+        DontDestroyOnLoad(gameObject);
 
         foreach (Sound s in soundArray)
         {
@@ -43,7 +43,10 @@ public class AudioManager : MonoBehaviour
         {
             Play("mainMenuTheme");
         }
-        
+        else
+        {
+            Play("levelTheme");
+        }
     }
 
     public void Play(string name)

@@ -147,7 +147,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 0.5
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -198,6 +198,8 @@ MonoBehaviour:
   mousePos: {x: 0, y: 0, z: 0}
   lastMove: {x: 0, y: 0}
   posDif: {x: 0, y: 0}
+  moveX: 0
+  moveY: 0
 --- !u!1 &35182004578073586
 GameObject:
   m_ObjectHideFlags: 0

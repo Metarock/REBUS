@@ -8,8 +8,8 @@ public class WeaponSwitching : MonoBehaviour
 
     private PlayerMovement playerMovement;
 
-    private float lastPosX;
-    private float lastPosY;
+    public float lastPosX;
+    public float lastPosY;
     
     // Start is called before the first frame update
     void Start()

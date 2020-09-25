@@ -13,11 +13,11 @@ namespace Tests
         // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
         // `yield return null;` to skip a frame.
         [UnityTest]
-        public IEnumerator PlayerMoveWithEnumeratorPasses()
+        public IEnumerator FindPlayer()
         {
             // Use the Assert class to test conditions.
             // Use yield to skip a frame.
-            SceneManager.LoadScene("OfficeFloor1");
+            SceneManager.LoadScene("MainMenu");
 
             yield return new WaitForSeconds(3);
 
@@ -31,6 +31,31 @@ namespace Tests
 
         }
 
+        [UnityTest]
+        public IEnumerator PlayerIsMoving()
+        {
+            SceneManager.LoadScene("MainMenu");
+                
+            yield return new WaitForSeconds(10);
+
+            var gameObject = new GameObject("PlayerMoving");
+            gameObject.AddComponent<PlayerMovement>();
+            var player = gameObject.GetComponent<PlayerMovement>();
+            bool moving;
+
+           if ((player.moveX > 0.5f || player.moveX < -0.5f) == true || (player.moveY > 0.5f || player.moveY < -0.5f) != true)
+            {
+                moving = true;
+            }
+            else
+            {
+                moving = false;
+
+            }
+
+            Assert.AreEqual(true, moving);
+        
+        }
        /* public IEnumerator PlayerMoveWithEnumeratorPasses()
         {
             // Use the Assert class to test conditions.

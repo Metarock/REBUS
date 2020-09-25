@@ -15331,6 +15331,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedWeapon: 0
   selectedPlayer: {fileID: 0}
+  lastPosX: 0
+  lastPosY: 0
 --- !u!4 &1093995137187296607
 Transform:
   m_ObjectHideFlags: 0

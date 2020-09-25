@@ -5,7 +5,7 @@ using UnityEngine;
 public class RotateScript : MonoBehaviour
 {
     Vector3 mousePos;
-    Vector2 direction;
+    public Vector2 direction;
     Camera cam;
     Rigidbody2D rid;
     Animator anim;
@@ -22,7 +22,7 @@ public class RotateScript : MonoBehaviour
         cursorDirection();
     }
 
-    void cursorDirection()
+    public void cursorDirection()
     {
         mousePos = Input.mousePosition;
         mousePos = Camera.main.ScreenToWorldPoint(mousePos);

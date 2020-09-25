@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
     {
         // Quaternion.identity just says no rotation
         GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-        //Destroys after 5 seconds
+        //Destroys after .1 seconds
         Destroy(effect, 0.1f);
         Destroy(gameObject);
     }

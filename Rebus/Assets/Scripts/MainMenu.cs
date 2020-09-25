@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour
     //Function to play office level
     public void PlayOfficeLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2); //Goes to Office first floor
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); //Goes to Office first floor
     }
 
     //Function to play house level

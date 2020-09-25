@@ -208,12 +208,13 @@ public class Enemy : MonoBehaviour
         // transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
-    void ShootingAI()
+    public void ShootingAI()
     {
 
         Vector3 dir = target.transform.position - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        Debug.Log(transform.rotation);
 
     }
 }

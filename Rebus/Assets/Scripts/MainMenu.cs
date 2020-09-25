@@ -15,13 +15,13 @@ public class MainMenu : MonoBehaviour
     //Function to play office level
     public void PlayOfficeLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2); //Goes to Office first floor
     }
 
-    //Function to play house level -- NEEDS FIX
+    //Function to play house level
     public void PlayHouseLevel()
     {
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 4); //Goes to House first floor
     }
 
     //Function to quit game (for QUIT button)

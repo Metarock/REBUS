@@ -98,8 +98,6 @@ public class PlayerMovement : MonoBehaviour
         movedir = new Vector2(moveX, moveY).normalized;
 
 
-        
-
         processInputs();
 
         //horizontal

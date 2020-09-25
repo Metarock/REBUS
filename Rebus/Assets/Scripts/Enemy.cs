@@ -22,6 +22,12 @@ public class Enemy : MonoBehaviour
 
     private float speed = 0.5f;
 
+    //SANggy work
+    public float enemySpeed;
+    public float stoppingDistance;
+    public float retreatDistance;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,8 +36,6 @@ public class Enemy : MonoBehaviour
         anim = GetComponent<Animator>();
         localScale = transform.localScale;
         target = GameObject.FindGameObjectWithTag("Player");
-
-
     }
 
     // Update is called once per frame
@@ -80,9 +84,10 @@ public class Enemy : MonoBehaviour
         // {
         //     moveMentSpeed = 2f;
         // }
-        float step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
+     /*   float step = speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);*/
 
+        movement();
         SetAnimationState();
         // if (!isDead && !isLeaning && !isExploded && !isProning)
         // {
@@ -91,6 +96,23 @@ public class Enemy : MonoBehaviour
         // }
     }
 
+    void movement()
+    {
+        if (Vector2.Distance(transform.position, target.transform.position) > stoppingDistance)
+        {
+            //moveTowards player
+            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+        } 
+        else if (Vector2.Distance(transform.position, target.transform.position) < stoppingDistance && Vector2.Distance(transform.position, target.transform.position) > retreatDistance)
+        {
+            //stop enemy position
+            transform.position = this.transform.position;
+        }
+        else if(Vector2.Distance(transform.position, target.transform.position) < retreatDistance)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, -speed * Time.deltaTime);
+        }
+    }
     void FixedUpdate()
     {
         if (!isExploded)
@@ -103,6 +125,7 @@ public class Enemy : MonoBehaviour
         //CheckFace();
         ShootingAI();
     }
+
 
     void SetAnimationState()
     {

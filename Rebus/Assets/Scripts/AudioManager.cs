@@ -57,7 +57,7 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-
+        backgroundAudio.loop = true;
         backgroundAudio.Play();
 
         /*-----------NEW THINGG---------------*/ 

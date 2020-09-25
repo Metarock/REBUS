@@ -9,7 +9,7 @@ namespace Tests
 {
     public class PlayerRotationTest
     {
-        [Test]
+        /*[Test]
         public void TestRotation()
         {
 
@@ -26,6 +26,6 @@ namespace Tests
             // Assert : Testing if the "transform.up" is equal to the "direction"
             Assert.AreEqual(expected: gameObject.GetComponent<RotateScript>().direction, actual: gameObject.GetComponent<RotateScript>().transform.up);
 
-        }
+        }*/
     }
 }

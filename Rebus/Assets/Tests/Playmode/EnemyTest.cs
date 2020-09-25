@@ -15,7 +15,7 @@ namespace Tests
 
 
             var gameObject = new GameObject();
-            gameObject.
+            gameObject.AddComponent<Enemy>();
             Enemy enemy = gameObject.GetComponent<Enemy>();
             bool statementHolds = false;
             

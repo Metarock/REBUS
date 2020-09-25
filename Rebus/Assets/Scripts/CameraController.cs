@@ -70,7 +70,7 @@ public class CameraController : MonoBehaviour
     }
 
     //set playermovement as true after going ahead
-    public void setFollowPlayer(bool val)
+    void setFollowPlayer(bool val)
     {
         followPlayer = val;
     }

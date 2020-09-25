@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6977711575923200231}
   - component: {fileID: 7989210111322617908}
   - component: {fileID: -4970193145826731314}
+  - component: {fileID: -4465992908858551145}
+  - component: {fileID: 1245842520082325322}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -146,4 +148,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 5888232297138605387, guid: eaaaf5e598f6dec478906b7016813287,
     type: 3}
-  speed: 3
+--- !u!114 &-4465992908858551145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3628130046035797740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3529fb311628fd544b7e8ae91d6bc7ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToPlayer: 5
+--- !u!114 &1245842520082325322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3628130046035797740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fa5a835d1fb6734290c6e46bee68373, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToGive: 5

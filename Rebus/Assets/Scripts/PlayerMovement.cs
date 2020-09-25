@@ -19,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 posDif;
     private Vector2 movedir;
 
+    // For scene changing
+    public VectorValue startingPosition;
+
 
     public float moveX;
     public float moveY;
@@ -32,6 +35,10 @@ public class PlayerMovement : MonoBehaviour
         lastPosY = 0;
 
         transform.position = new Vector3(lastPosX, lastPosY, transform.position.z);
+
+        // For Loading a new Scene
+        transform.position = startingPosition.initialValue;
+        
     }
 
     void OnEnable()

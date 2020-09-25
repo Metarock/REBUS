@@ -19,6 +19,7 @@ public class CameraController : MonoBehaviour
     private float halfHeight;
     private float halfWidth;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +35,7 @@ public class CameraController : MonoBehaviour
 
         halfHeight = cam.orthographicSize;
         halfWidth = halfHeight * Screen.width / Screen.height;
+
 
     }
 

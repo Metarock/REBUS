@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    // Effect when it hits an object
+    public GameObject hitEffect;
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        // Quaternion.identity just says no rotation
+        GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+        //Destroys after .1 seconds
+        Destroy(effect, 0.1f);
+        Destroy(gameObject);
     }
 }

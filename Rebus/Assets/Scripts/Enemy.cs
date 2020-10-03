@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-
 /*
 hold left shift and press w,a,s,d towards, E for explosion animation, 
 R for death, Z for proning and L for leaning
@@ -24,11 +23,13 @@ public class Enemy : MonoBehaviour
 
     //SANggy work
     public float enemySpeed;
-    public float stoppingDistance;
+
     public float retreatDistance;
 
+    public float stoppingDistance;
+    public float shootingDistance;
 
-
+    public bool firePermit;
     // Start is called before the first frame update
     void Start()
     {
@@ -84,8 +85,8 @@ public class Enemy : MonoBehaviour
         // {
         //     moveMentSpeed = 2f;
         // }
-     /*   float step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);*/
+        /*   float step = speed * Time.deltaTime;
+           transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);*/
 
         movement();
         SetAnimationState();
@@ -98,19 +99,37 @@ public class Enemy : MonoBehaviour
 
     void movement()
     {
-        if (Vector2.Distance(transform.position, target.transform.position) > stoppingDistance)
+        //set retreat distance to 2 ,stopping distance to 3  and shooting distance to 4
+
+        //if beyond shooting distance, remain leaning and stop shooting
+
+        if (Vector2.Distance(transform.position, target.transform.position) > shootingDistance)
         {
-            //moveTowards player
-            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
-        } 
-        else if (Vector2.Distance(transform.position, target.transform.position) < stoppingDistance && Vector2.Distance(transform.position, target.transform.position) > retreatDistance)
-        {
-            //stop enemy position
             transform.position = this.transform.position;
+            firePermit = false;
         }
-        else if(Vector2.Distance(transform.position, target.transform.position) < retreatDistance)
+
+        else if (Vector2.Distance(transform.position, target.transform.position) > stoppingDistance && Vector2.Distance(transform.position, target.transform.position) <= shootingDistance)
         {
+            //moveTowards player && shooting
+            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+            firePermit = true;
+
+
+        }
+        else if (Vector2.Distance(transform.position, target.transform.position) <= stoppingDistance && Vector2.Distance(transform.position, target.transform.position) > retreatDistance)
+        {
+            //stop enemy position && shooting
+            transform.position = this.transform.position;
+            firePermit = true;
+
+        }
+        else if (Vector2.Distance(transform.position, target.transform.position) <= retreatDistance)
+        {
+            //while retreating , stop shooting
             transform.position = Vector2.MoveTowards(transform.position, target.transform.position, -speed * Time.deltaTime);
+            firePermit = false;
+
         }
     }
     void FixedUpdate()
@@ -182,6 +201,12 @@ public class Enemy : MonoBehaviour
             anim.SetBool("isLeaning", false);
         }
 
+        if(firePermit){
+            anim.SetBool("firePermit",true);
+        }
+        else{
+            anim.SetBool("firePermit",false);
+        }
 
     }
 
@@ -211,10 +236,13 @@ public class Enemy : MonoBehaviour
     public void ShootingAI()
     {
 
+
         Vector3 dir = target.transform.position - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        Debug.Log(transform.rotation);
+        //Debug.Log(transform.rotation);
+
+
 
     }
 }

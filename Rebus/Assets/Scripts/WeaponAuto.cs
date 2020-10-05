@@ -26,8 +26,8 @@ public class WeaponAuto : MonoBehaviour
             {
                 audioManager.uziShot.Play();
                 Shoot();
-                // This prevents the player from spamming the automatic gun. Shoots every 0.03 seconds.
-                Invoke(nameof(ResetCooldown), 0.03f);
+                // This prevents the player from spamming the automatic gun. Shoots every 0.08 seconds.
+                Invoke(nameof(ResetCooldown), 0.12f);
                 cooldown = true;
             }
 

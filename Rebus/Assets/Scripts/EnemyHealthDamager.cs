@@ -18,11 +18,11 @@ public class EnemyHealthDamager : MonoBehaviour
         
     }
 
-    void OnTriggerEnter2D(Collider2D anObject)
+    void OnCollisionEnter2D(Collision2D other)
     {
-        if(anObject.gameObject.tag == "Enemy")
+        if(other.gameObject.tag == "Enemy")
         {
-            anObject.GetComponent<EnemyHealthManager>().EnemyIsDamaged(damageToGive);
+            other.gameObject.GetComponent<EnemyHealthManager>().EnemyIsDamaged(damageToGive);
         }
     }
 }

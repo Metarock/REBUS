@@ -22,12 +22,26 @@ public class PlayerMovement : MonoBehaviour
     // For scene changing
     public VectorValue startingPosition;
 
+    private static bool playerExists;
 
     public float moveX;
     public float moveY;
     // Start is called before the first frame update
     void Start()
     {
+        //TEST
+        if(!playerExists)
+
+        {
+            playerExists = true;
+            DontDestroyOnLoad(transform.gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        //TEST
+
         anim = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
 

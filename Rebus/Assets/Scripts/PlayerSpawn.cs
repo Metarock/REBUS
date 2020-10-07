@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerSpawn : MonoBehaviour
+public class PlayerSpawn : MonoBehaviour
 {
     private PlayerMovement thePlayer;
     private CameraController theCamera;

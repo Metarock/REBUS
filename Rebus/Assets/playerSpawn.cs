@@ -18,10 +18,4 @@ public class playerSpawn : MonoBehaviour
         theCamera = FindObjectOfType<CameraController>();
         theCamera.transform.position = new Vector3(transform.position.x, transform.position.y, theCamera.transform.position.z);
     }
-
-    
-    void Update()
-    {
-        
-    }
 }

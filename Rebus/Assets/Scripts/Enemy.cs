@@ -13,8 +13,8 @@ public class Enemy : MonoBehaviour
     Rigidbody2D rb;
     Animator anim;
     float dirX, dirY, moveMentSpeed = 0;
-    bool isExploded, isDead;
-    bool isLeaning, isProning;
+    public bool isExploding = false, isDead = false;
+    bool isLeaning = false, isProning = false;
     bool facingRight = true;
     Vector3 localScale;
     public GameObject target;
@@ -29,7 +29,14 @@ public class Enemy : MonoBehaviour
     public float stoppingDistance;
     public float shootingDistance;
 
-    public bool firePermit;
+    //introducing those bullets object into enemy class
+    public WeaponSemi weaponSemi;
+    public WeaponAuto weaponAuto;
+    public WeaponShotgun weaponShotgun;
+
+
+
+    public bool firePermit = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,88 +60,87 @@ public class Enemy : MonoBehaviour
         // }
         // else if (Input.GetKeyDown(KeyCode.E))
         // {
+        //press e for testing exploding
         //     isExploded = true;
         // }
-        // else if (Input.GetKeyDown(KeyCode.R))
-        // {
-        //     isDead = true;
-        // }
-        // else if (Input.GetKeyDown(KeyCode.Z))
-        // {
-        //     if (isProning)
-        //     {
-        //         isProning = false;
-        //     }
-        //     else
-        //     {
-        //         isProning = true;
-        //     }
-        // }
-        // else if (Input.GetKeyDown(KeyCode.L))
-        // {
-        //     if (isLeaning)
-        //     {
-        //         isLeaning = false;
-        //     }
-        //     else
-        //     {
-        //         isLeaning = true;
-        //     }
-        // }
-        // else
-        // {
-        //     moveMentSpeed = 2f;
-        // }
+
         /*   float step = speed * Time.deltaTime;
            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);*/
 
+
+
+        //detects if enemy have been shot by player
+
+
         movement();
+
         SetAnimationState();
-        // if (!isDead && !isLeaning && !isExploded && !isProning)
-        // {
-        //     dirX = Input.GetAxisRaw("Horizontal") * moveMentSpeed;
-        //     dirY = Input.GetAxisRaw("Vertical") * moveMentSpeed;
-        // }
+
+
     }
 
     void movement()
     {
+        if (!isDead)
+        {
+            if (Vector2.Distance(transform.position, target.transform.position) > shootingDistance)
+            {
+                transform.position = this.transform.position;
+                firePermit = false;
+            }
+
+            else if (Vector2.Distance(transform.position, target.transform.position) > stoppingDistance && Vector2.Distance(transform.position, target.transform.position) <= shootingDistance)
+            {
+                //moveTowards player && shooting
+                transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+                firePermit = true;
+
+
+            }
+            else if (Vector2.Distance(transform.position, target.transform.position) <= stoppingDistance && Vector2.Distance(transform.position, target.transform.position) > retreatDistance)
+            {
+                //stop enemy position && shooting
+                transform.position = this.transform.position;
+                firePermit = true;
+
+            }
+            else if (Vector2.Distance(transform.position, target.transform.position) <= retreatDistance)
+            {
+                //while retreating , stop shooting
+                transform.position = Vector2.MoveTowards(transform.position, target.transform.position, -speed * Time.deltaTime);
+                firePermit = false;
+
+            }
+
+
+            weaponSemi = FindObjectOfType<WeaponSemi>();
+            weaponAuto = FindObjectOfType<WeaponAuto>();
+            weaponShotgun = FindObjectOfType<WeaponShotgun>();
+
+            if ((weaponSemi != null && weaponSemi.semiBullet.GetComponent<Rigidbody2D>().IsTouching(rb.GetComponent<BoxCollider2D>()))
+                || (weaponAuto != null && weaponAuto.autoBullet.GetComponent<Rigidbody2D>().IsTouching(rb.GetComponent<BoxCollider2D>()))
+                || (weaponShotgun != null && weaponShotgun.shotgunBullet1.GetComponent<Rigidbody2D>().IsTouching(rb.GetComponent<BoxCollider2D>()))
+                || (weaponShotgun != null && weaponShotgun.shotgunBullet2.GetComponent<Rigidbody2D>().IsTouching(rb.GetComponent<BoxCollider2D>()))
+                || (weaponShotgun != null && weaponShotgun.shotgunBullet3.GetComponent<Rigidbody2D>().IsTouching(rb.GetComponent<BoxCollider2D>())))
+            {
+                isExploding = true;
+                isDead = true;
+            }
+
+        }
+        else{
+            firePermit = false;
+        }
         //set retreat distance to 2 ,stopping distance to 3  and shooting distance to 4
 
         //if beyond shooting distance, remain leaning and stop shooting
 
-        if (Vector2.Distance(transform.position, target.transform.position) > shootingDistance)
-        {
-            transform.position = this.transform.position;
-            firePermit = false;
-        }
-
-        else if (Vector2.Distance(transform.position, target.transform.position) > stoppingDistance && Vector2.Distance(transform.position, target.transform.position) <= shootingDistance)
-        {
-            //moveTowards player && shooting
-            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
-            firePermit = true;
 
 
-        }
-        else if (Vector2.Distance(transform.position, target.transform.position) <= stoppingDistance && Vector2.Distance(transform.position, target.transform.position) > retreatDistance)
-        {
-            //stop enemy position && shooting
-            transform.position = this.transform.position;
-            firePermit = true;
-
-        }
-        else if (Vector2.Distance(transform.position, target.transform.position) <= retreatDistance)
-        {
-            //while retreating , stop shooting
-            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, -speed * Time.deltaTime);
-            firePermit = false;
-
-        }
     }
     void FixedUpdate()
     {
-        if (!isExploded)
+        if (!isExploding && !isDead)
         {
             rb.velocity = new Vector2(dirX, dirY);
         }
@@ -148,64 +154,26 @@ public class Enemy : MonoBehaviour
 
     void SetAnimationState()
     {
-        if (transform.position.x == 0 && transform.position.y == 0)
-        {
-            anim.SetBool("isWalking", false);
-            anim.SetBool("isRunning", false);
-        }
+        //some may not needed or may be needed later, who knows
 
 
-        else if (speed == 1f)
+        if (isExploding)
         {
-            anim.SetBool("isRunning", true);
-            anim.SetBool("isWalking", false);
+            anim.SetBool("isExploding", true);
         }
         else
         {
-            anim.SetBool("isRunning", false);
-            anim.SetBool("isWalking", true);
-
-
+            anim.SetBool("isExploding", false);
         }
-        if (isDead)
+
+
+        if (firePermit)
         {
-            anim.SetBool("isDead", true);
+            anim.SetBool("firePermit", true);
         }
         else
         {
-            anim.SetBool("isDead", false);
-
-        }
-        if (isExploded)
-        {
-            anim.SetBool("isExploded", true);
-        }
-        else
-        {
-            anim.SetBool("isExploded", false);
-        }
-        if (isProning)
-        {
-            anim.SetBool("isProning", true);
-        }
-        else
-        {
-            anim.SetBool("isProning", false);
-        }
-        if (isLeaning)
-        {
-            anim.SetBool("isLeaning", true);
-        }
-        else
-        {
-            anim.SetBool("isLeaning", false);
-        }
-
-        if(firePermit){
-            anim.SetBool("firePermit",true);
-        }
-        else{
-            anim.SetBool("firePermit",false);
+            anim.SetBool("firePermit", false);
         }
 
     }

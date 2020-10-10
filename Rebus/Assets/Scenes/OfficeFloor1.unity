@@ -14518,6 +14518,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 870197066616022768, guid: 2ea51a3bad7ceb54ab7dfcf6c757d437,
+        type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 870197066616022768, guid: 2ea51a3bad7ceb54ab7dfcf6c757d437,
+        type: 3}
+      propertyPath: m_UsedByComposite
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 870197066616022768, guid: 2ea51a3bad7ceb54ab7dfcf6c757d437,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 870197066616022770, guid: 2ea51a3bad7ceb54ab7dfcf6c757d437,
         type: 3}
       propertyPath: stoppingDistance
@@ -14536,8 +14551,13 @@ PrefabInstance:
     - target: {fileID: 870197066616022770, guid: 2ea51a3bad7ceb54ab7dfcf6c757d437,
         type: 3}
       propertyPath: shootingDistance
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 870197066616022770, guid: 2ea51a3bad7ceb54ab7dfcf6c757d437,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1093995136568914337}
     - target: {fileID: 870197066664607931, guid: 2ea51a3bad7ceb54ab7dfcf6c757d437,
         type: 3}
       propertyPath: legalToFire
@@ -14546,12 +14566,12 @@ PrefabInstance:
     - target: {fileID: 2717706312207942635, guid: 2ea51a3bad7ceb54ab7dfcf6c757d437,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.4
+      value: -12.1
       objectReference: {fileID: 0}
     - target: {fileID: 2717706312207942635, guid: 2ea51a3bad7ceb54ab7dfcf6c757d437,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.86
+      value: -7.47
       objectReference: {fileID: 0}
     - target: {fileID: 2717706312207942635, guid: 2ea51a3bad7ceb54ab7dfcf6c757d437,
         type: 3}
@@ -14899,6 +14919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490a4ce0ca003ea42a2518afb4d65d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mybullet: {fileID: 0}
   firePoint: {fileID: 1093995136568862174}
   bulletPrefab: {fileID: 3628130046035797740, guid: fb519f6ef31c7e446bf9ca68a488b9af,
     type: 3}

@@ -6,6 +6,11 @@ public class WeaponShotgun : MonoBehaviour
 {
     private AudioManager audioManager;
 
+    public GameObject shotgunBullet1;
+    public GameObject shotgunBullet2;
+
+    public GameObject shotgunBullet3;
+
     public Transform firePoint1;
     public Transform firePoint2;
     public Transform firePoint3;
@@ -44,13 +49,13 @@ public class WeaponShotgun : MonoBehaviour
 
     void Shoot()
     {
-        GameObject bullet1 = Instantiate(bulletPrefab, firePoint1.position, firePoint1.rotation);
-        GameObject bullet2 = Instantiate(bulletPrefab, firePoint2.position, firePoint2.rotation);
-        GameObject bullet3 = Instantiate(bulletPrefab, firePoint3.position, firePoint3.rotation);
+        shotgunBullet1 = Instantiate(bulletPrefab, firePoint1.position, firePoint1.rotation);
+        shotgunBullet2 = Instantiate(bulletPrefab, firePoint2.position, firePoint2.rotation);
+        shotgunBullet3 = Instantiate(bulletPrefab, firePoint3.position, firePoint3.rotation);
 
-        Rigidbody2D rb1 = bullet1.GetComponent<Rigidbody2D>();
-        Rigidbody2D rb2 = bullet2.GetComponent<Rigidbody2D>();
-        Rigidbody2D rb3 = bullet3.GetComponent<Rigidbody2D>();
+        Rigidbody2D rb1 = shotgunBullet1.GetComponent<Rigidbody2D>();
+        Rigidbody2D rb2 = shotgunBullet2.GetComponent<Rigidbody2D>();
+        Rigidbody2D rb3 = shotgunBullet3.GetComponent<Rigidbody2D>();
 
         // Creating bullet and flying at high velocity.
         rb1.AddForce(firePoint1.up * bulletForce, ForceMode2D.Impulse);

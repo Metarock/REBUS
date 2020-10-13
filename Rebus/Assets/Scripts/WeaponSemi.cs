@@ -6,6 +6,7 @@ public class WeaponSemi : MonoBehaviour
 {
     private AudioManager audioManager;
 
+    public GameObject semiBullet;
     public Transform firePoint;
     public GameObject bulletPrefab;
     public float bulletForce = 70f;
@@ -40,8 +41,8 @@ public class WeaponSemi : MonoBehaviour
 
     public void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        semiBullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Rigidbody2D rb = semiBullet.GetComponent<Rigidbody2D>();
         // Creating bullet and flying at high velocity.
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
     }

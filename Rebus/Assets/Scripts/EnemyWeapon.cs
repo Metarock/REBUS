@@ -6,22 +6,29 @@ public class EnemyWeapon : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
+
     public float bulletForce = 30f;
     // Cooldown per shot
     private bool cooldown = false;
+    public Enemy enemy ;
+
 
     void Update()
     {
-        if (cooldown == false)
+        enemy = FindObjectOfType<Enemy>();
+        //Debug.Log(enemy.GetComponent<Enemy>().firePermit);
+
+        //Debug.Log(enemy.firePermit + "enemy permit????");
+        if (cooldown == false && enemy.GetComponent<Enemy>().firePermit == true)
         {
-           
-                Shoot();
-                // This prevents the player from spamming the semi-automatic gun. Shoots every 1.4 seconds.
-                Invoke(nameof(ResetCooldown), 1.4f);
-                cooldown = true;
-                
-                
-            
+
+            Shoot();
+            // This prevents the player from spamming the semi-automatic gun. Shoots every 1.4 seconds.
+            Invoke(nameof(ResetCooldown), 1.4f);
+            cooldown = true;
+
+
+
 
         }
     }

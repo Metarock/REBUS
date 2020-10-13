@@ -34,9 +34,9 @@ public class Enemy : MonoBehaviour
     public WeaponAuto weaponAuto;
     public WeaponShotgun weaponShotgun;
 
-
-
     public bool firePermit = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +50,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         target = GameObject.FindGameObjectWithTag("Player");
+        rb = GetComponent<Rigidbody2D>();
 
         // Console.WriteLine(target.transform.position);
 
@@ -116,19 +117,9 @@ public class Enemy : MonoBehaviour
             weaponSemi = FindObjectOfType<WeaponSemi>();
             weaponAuto = FindObjectOfType<WeaponAuto>();
             weaponShotgun = FindObjectOfType<WeaponShotgun>();
-
-            if ((weaponSemi != null && weaponSemi.semiBullet.GetComponent<Rigidbody2D>().IsTouching(rb.GetComponent<BoxCollider2D>()))
-                || (weaponAuto != null && weaponAuto.autoBullet.GetComponent<Rigidbody2D>().IsTouching(rb.GetComponent<BoxCollider2D>()))
-                || (weaponShotgun != null && weaponShotgun.shotgunBullet1.GetComponent<Rigidbody2D>().IsTouching(rb.GetComponent<BoxCollider2D>()))
-                || (weaponShotgun != null && weaponShotgun.shotgunBullet2.GetComponent<Rigidbody2D>().IsTouching(rb.GetComponent<BoxCollider2D>()))
-                || (weaponShotgun != null && weaponShotgun.shotgunBullet3.GetComponent<Rigidbody2D>().IsTouching(rb.GetComponent<BoxCollider2D>())))
-            {
-                isExploding = true;
-                isDead = true;
-            }
-
         }
-        else{
+        else
+        {
             firePermit = false;
         }
         //set retreat distance to 2 ,stopping distance to 3  and shooting distance to 4

@@ -6,7 +6,7 @@ public class WeaponSemi : MonoBehaviour
 {
     private AudioManager audioManager;
 
-    public GameObject semiBullet;
+    public static GameObject semiBullet;
     public Transform firePoint;
     public GameObject bulletPrefab;
     public float bulletForce = 70f;

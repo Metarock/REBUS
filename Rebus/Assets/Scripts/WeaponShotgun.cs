@@ -6,10 +6,9 @@ public class WeaponShotgun : MonoBehaviour
 {
     private AudioManager audioManager;
 
-    public GameObject shotgunBullet1;
-    public GameObject shotgunBullet2;
-
-    public GameObject shotgunBullet3;
+    public static GameObject shotgunBullet1;
+    public static GameObject shotgunBullet2;
+    public static GameObject shotgunBullet3;
 
     public Transform firePoint1;
     public Transform firePoint2;

@@ -7,7 +7,7 @@ public class WeaponAuto : MonoBehaviour
 {
     private AudioManager audioManager;
 
-    public GameObject autoBullet;
+    public static GameObject autoBullet;
     public Transform firePoint;
     public GameObject bulletPrefab;
     public float bulletForce = 70f;

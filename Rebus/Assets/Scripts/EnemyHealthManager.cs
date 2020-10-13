@@ -24,6 +24,7 @@ public class EnemyHealthManager : MonoBehaviour
 
     public void EnemyIsDamaged(int damageToEnemy)
     {
+        Debug.Log("Health: " + enemyCurrentHealth);
         enemyCurrentHealth -= damageToEnemy;
     }
 

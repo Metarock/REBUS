@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class LoadNewArea : MonoBehaviour
 {
     public string sceneToLoad;
-    public Vector2 playerPosition;
+    //public Vector2 playerPosition;
     public VectorValue playerStorage;
 
     void OnTriggerEnter2D(Collider2D other)
@@ -14,7 +14,7 @@ public class LoadNewArea : MonoBehaviour
         // If Player Tag is recognized, then it loads the selected scene
         if (other.CompareTag("Player") && !other.isTrigger)
         {
-            playerStorage.initialValue = playerPosition;
+            //playerStorage.initialValue = playerPosition;
             SceneManager.LoadScene(sceneToLoad);
         }
     }

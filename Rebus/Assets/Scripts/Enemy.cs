@@ -107,7 +107,7 @@ public class Enemy : MonoBehaviour
             }
             else if (Vector2.Distance(transform.position, target.transform.position) <= retreatDistance)
             {
-                //while retreating , stop shooting
+                //while retreating , STOP shooting
                 transform.position = Vector2.MoveTowards(transform.position, target.transform.position, -speed * Time.deltaTime);
                 firePermit = false;
 

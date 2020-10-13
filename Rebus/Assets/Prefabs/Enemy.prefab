@@ -78,6 +78,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7432144677708631516, guid: 48fbad9fa457e5841b66e55f85261925,
     type: 3}
   bulletForce: 10
+  enemy: {fileID: 0}
 --- !u!1 &3020291170485038596
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,10 +244,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f97bc0b5ae5a2984f9d8e225eb43b58f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isExploding: 0
+  isDead: 0
   target: {fileID: 0}
-  enemySpeed: 0
-  stoppingDistance: 0
-  retreatDistance: 0
+  enemySpeed: 500
+  retreatDistance: 5
+  stoppingDistance: 3
+  shootingDistance: 15
+  weaponSemi: {fileID: 0}
+  weaponAuto: {fileID: 0}
+  weaponShotgun: {fileID: 0}
+  firePermit: 0
 --- !u!114 &4068368562365241705
 MonoBehaviour:
   m_ObjectHideFlags: 0

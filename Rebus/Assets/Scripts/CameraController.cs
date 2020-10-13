@@ -8,6 +8,7 @@ public class CameraController : MonoBehaviour
     public bool followPlayer = true;
     PlayerMovement playerMovement;
 
+    private static bool cameraExists;
 
     private Camera cam;
 
@@ -23,6 +24,19 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //TEST
+        if (!cameraExists)
+
+        {
+            cameraExists = true;
+            DontDestroyOnLoad(transform.gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        //TEST
+
         player = GameObject.FindGameObjectWithTag("Player");
         playerMovement = player.GetComponent<PlayerMovement>();
         cam = GetComponent<Camera>();

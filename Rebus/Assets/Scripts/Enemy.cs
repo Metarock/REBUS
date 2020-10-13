@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-
 /*
 hold left shift and press w,a,s,d towards, E for explosion animation, 
 R for death, Z for proning and L for leaning
@@ -14,8 +13,8 @@ public class Enemy : MonoBehaviour
     Rigidbody2D rb;
     Animator anim;
     float dirX, dirY, moveMentSpeed = 0;
-    bool isExploded, isDead;
-    bool isLeaning, isProning;
+    public bool isExploding = false, isDead = false;
+    bool isLeaning = false, isProning = false;
     bool facingRight = true;
     Vector3 localScale;
     public GameObject target;
@@ -24,9 +23,18 @@ public class Enemy : MonoBehaviour
 
     //SANggy work
     public float enemySpeed;
-    public float stoppingDistance;
+
     public float retreatDistance;
 
+    public float stoppingDistance;
+    public float shootingDistance;
+
+    //introducing those bullets object into enemy class
+    public WeaponSemi weaponSemi;
+    public WeaponAuto weaponAuto;
+    public WeaponShotgun weaponShotgun;
+
+    public bool firePermit = false;
 
 
     // Start is called before the first frame update
@@ -42,6 +50,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         target = GameObject.FindGameObjectWithTag("Player");
+        rb = GetComponent<Rigidbody2D>();
 
         // Console.WriteLine(target.transform.position);
 
@@ -52,70 +61,77 @@ public class Enemy : MonoBehaviour
         // }
         // else if (Input.GetKeyDown(KeyCode.E))
         // {
+        //press e for testing exploding
         //     isExploded = true;
         // }
-        // else if (Input.GetKeyDown(KeyCode.R))
-        // {
-        //     isDead = true;
-        // }
-        // else if (Input.GetKeyDown(KeyCode.Z))
-        // {
-        //     if (isProning)
-        //     {
-        //         isProning = false;
-        //     }
-        //     else
-        //     {
-        //         isProning = true;
-        //     }
-        // }
-        // else if (Input.GetKeyDown(KeyCode.L))
-        // {
-        //     if (isLeaning)
-        //     {
-        //         isLeaning = false;
-        //     }
-        //     else
-        //     {
-        //         isLeaning = true;
-        //     }
-        // }
-        // else
-        // {
-        //     moveMentSpeed = 2f;
-        // }
-     /*   float step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);*/
+
+        /*   float step = speed * Time.deltaTime;
+           transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);*/
+
+
+
+        //detects if enemy have been shot by player
+
 
         movement();
+
         SetAnimationState();
-        // if (!isDead && !isLeaning && !isExploded && !isProning)
-        // {
-        //     dirX = Input.GetAxisRaw("Horizontal") * moveMentSpeed;
-        //     dirY = Input.GetAxisRaw("Vertical") * moveMentSpeed;
-        // }
+
+
     }
 
     void movement()
     {
-        if (Vector2.Distance(transform.position, target.transform.position) > stoppingDistance)
+        if (!isDead)
         {
-            //moveTowards player
-            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
-        } 
-        else if (Vector2.Distance(transform.position, target.transform.position) < stoppingDistance && Vector2.Distance(transform.position, target.transform.position) > retreatDistance)
-        {
-            //stop enemy position
-            transform.position = this.transform.position;
+            if (Vector2.Distance(transform.position, target.transform.position) > shootingDistance)
+            {
+                transform.position = this.transform.position;
+                firePermit = false;
+            }
+
+            else if (Vector2.Distance(transform.position, target.transform.position) > stoppingDistance && Vector2.Distance(transform.position, target.transform.position) <= shootingDistance)
+            {
+                //moveTowards player && shooting
+                transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+                firePermit = true;
+
+
+            }
+            else if (Vector2.Distance(transform.position, target.transform.position) <= stoppingDistance && Vector2.Distance(transform.position, target.transform.position) > retreatDistance)
+            {
+                //stop enemy position && shooting
+                transform.position = this.transform.position;
+                firePermit = true;
+
+            }
+            else if (Vector2.Distance(transform.position, target.transform.position) <= retreatDistance)
+            {
+                //while retreating , STOP shooting
+                transform.position = Vector2.MoveTowards(transform.position, target.transform.position, -speed * Time.deltaTime);
+                firePermit = false;
+
+            }
+
+
+            weaponSemi = FindObjectOfType<WeaponSemi>();
+            weaponAuto = FindObjectOfType<WeaponAuto>();
+            weaponShotgun = FindObjectOfType<WeaponShotgun>();
         }
-        else if(Vector2.Distance(transform.position, target.transform.position) < retreatDistance)
+        else
         {
-            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, -speed * Time.deltaTime);
+            firePermit = false;
         }
+        //set retreat distance to 2 ,stopping distance to 3  and shooting distance to 4
+
+        //if beyond shooting distance, remain leaning and stop shooting
+
+
+
     }
     void FixedUpdate()
     {
-        if (!isExploded)
+        if (!isExploding && !isDead)
         {
             rb.velocity = new Vector2(dirX, dirY);
         }
@@ -129,59 +145,27 @@ public class Enemy : MonoBehaviour
 
     void SetAnimationState()
     {
-        if (transform.position.x == 0 && transform.position.y == 0)
-        {
-            anim.SetBool("isWalking", false);
-            anim.SetBool("isRunning", false);
-        }
+        //some may not needed or may be needed later, who knows
 
 
-        else if (speed == 1f)
+        if (isExploding)
         {
-            anim.SetBool("isRunning", true);
-            anim.SetBool("isWalking", false);
+            anim.SetBool("isExploding", true);
         }
         else
         {
-            anim.SetBool("isRunning", false);
-            anim.SetBool("isWalking", true);
-
-
+            anim.SetBool("isExploding", false);
         }
-        if (isDead)
+
+
+        if (firePermit)
         {
-            anim.SetBool("isDead", true);
+            anim.SetBool("firePermit", true);
         }
         else
         {
-            anim.SetBool("isDead", false);
-
+            anim.SetBool("firePermit", false);
         }
-        if (isExploded)
-        {
-            anim.SetBool("isExploded", true);
-        }
-        else
-        {
-            anim.SetBool("isExploded", false);
-        }
-        if (isProning)
-        {
-            anim.SetBool("isProning", true);
-        }
-        else
-        {
-            anim.SetBool("isProning", false);
-        }
-        if (isLeaning)
-        {
-            anim.SetBool("isLeaning", true);
-        }
-        else
-        {
-            anim.SetBool("isLeaning", false);
-        }
-
 
     }
 
@@ -210,11 +194,9 @@ public class Enemy : MonoBehaviour
 
     public void ShootingAI()
     {
-
         Vector3 dir = target.transform.position - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        Debug.Log(transform.rotation);
-
+        //Debug.Log(transform.rotation);
     }
 }

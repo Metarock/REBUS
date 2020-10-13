@@ -74,6 +74,11 @@ public class WeaponSwitching : MonoBehaviour
             selectedWeapon = 3;
         }
 
+        if (Input.GetKeyDown(KeyCode.Alpha5) && transform.childCount >= 5)
+        {
+            selectedWeapon = 4;
+        }
+
         if (previousSelectedWeapon != selectedWeapon)
         {
             SelectWeapon();
@@ -94,12 +99,7 @@ public class WeaponSwitching : MonoBehaviour
                 weapon.gameObject.SetActive(true);
 
                 selectedPlayer = GameObject.Find(weapon.gameObject.name);
-                playerMovement = selectedPlayer.GetComponent<PlayerMovement>();
 
-                lastPosX = PlayerMovement.lastPosX;
-                lastPosY = PlayerMovement.lastPosY;
-
-                playerMovement.setPosition(lastPosX, lastPosY);
             }
             else
             {

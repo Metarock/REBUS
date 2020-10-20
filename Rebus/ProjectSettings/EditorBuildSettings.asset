@@ -23,16 +23,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HouseSecondFloor.unity
     guid: 0490def7ef3a1b948bfb816b82cfa3a6
-  - enabled: 1
-    path: Assets/Scenes/LaboratoryFloor1.unity
-    guid: a4c8e8fe5c001cc4198b1bc8bcb806aa
-  - enabled: 1
-    path: Assets/Scenes/LaboratoryBasement1.unity
-    guid: a499bc8388c704c408acdb3849054e4d
-  - enabled: 1
-    path: Assets/Scenes/LaboratoryBasement3.unity
-    guid: 50b5b32171e8b4d48899d08fe799dd86
-  - enabled: 1
-    path: Assets/Scenes/LaboratoryBasement2.unity
-    guid: cbe8cab88bd695e47ae005e39ee67c58
   m_configObjects: {}

@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LaboratoryBasement3.unity
     guid: 50b5b32171e8b4d48899d08fe799dd86
+  - enabled: 1
+    path: Assets/Scenes/LaboratoryBasement2.unity
+    guid: cbe8cab88bd695e47ae005e39ee67c58
   m_configObjects: {}

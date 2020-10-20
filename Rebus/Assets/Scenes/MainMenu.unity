@@ -3345,7 +3345,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -4229,7 +4229,7 @@ MonoBehaviour:
     we''ve never heard of, but from what we have found in your past missions is that
     this is some kind of body-enhancing drug that make a user surpass our human limitations.
 
-    
+
 
     Prepare
     youself. Good luck and, eliminate anyone who stands in your way.'
@@ -7393,10 +7393,10 @@ MonoBehaviour:
     and is leaking out classified information. Hack into his computer in his office
     so we can get the evidence we need to put him behind bars.
 
-    
 
-    Eliminate
-    anyone standing in your way.'
+
+    Eliminate anyone
+    standing in your way.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

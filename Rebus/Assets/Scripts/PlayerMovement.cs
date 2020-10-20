@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         lastPosX = 0;
         lastPosY = 0;
 
-        transform.position = new Vector3(lastPosX, lastPosY, transform.position.z);
+        transform.position = new Vector3(lastPosX, lastPosY, 0);
 
         // For Loading a new Scene
         transform.position = startingPosition.initialValue;

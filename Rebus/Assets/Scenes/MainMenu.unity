@@ -316,6 +316,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 838201736}
+        m_MethodName: PlayLaboratoryLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &34973778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4228,7 +4239,6 @@ MonoBehaviour:
     of big-shot criminals from around the world, and this compund X... Is something
     we''ve never heard of, but from what we have found in your past missions is that
     this is some kind of body-enhancing drug that make a user surpass our human limitations.
-
 
 
     Prepare

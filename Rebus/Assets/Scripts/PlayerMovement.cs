@@ -26,6 +26,9 @@ public class PlayerMovement : MonoBehaviour
 
     public float moveX;
     public float moveY;
+
+    //variable if player is alive
+    bool isDead = false; 
     // Start is called before the first frame update
     void Start()
     {
@@ -106,11 +109,6 @@ public class PlayerMovement : MonoBehaviour
     {
         playerMoving = false;
 
-        float moveX = Input.GetAxis("Horizontal");
-        float moveY = Input.GetAxis("Vertical");
-
-        movedir = new Vector2(moveX, moveY).normalized;
-
 
         processInputs();
 
@@ -161,5 +159,12 @@ public class PlayerMovement : MonoBehaviour
         {
             playerMoving = true;
         }
+    }
+
+    public void resetPlayer()
+    {
+        moveX = 0;
+        moveY = 0;
+        playerMoving = true;
     }
 }

@@ -105,10 +105,19 @@ public class PlayerMovement : MonoBehaviour
 
         movedir = new Vector2(moveX, moveY).normalized;
     }
+
+    /*
+    * movement()
+    * ----------------
+    * This function is responsible for player's movement and animation. 
+    * 
+    * No Parameters
+    * 
+    * Returns nothing
+    */
     void movement()
     {
         playerMoving = false;
-
 
         processInputs();
 
@@ -130,7 +139,6 @@ public class PlayerMovement : MonoBehaviour
             myRigidbody.velocity = new Vector2(movedir.x * moveSpeed, movedir.y * moveSpeed);
             playerMoving = true;
             lastMove = new Vector2(0f, Input.GetAxisRaw("Vertical"));
-
             //  lastMove = (mouseScreenPosition - (Vector2)transform.position).normalized;
         }
 
@@ -161,6 +169,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    //Resets player upon dying.
     public void resetPlayer()
     {
         myRigidbody.velocity = new Vector2(0 ,0);

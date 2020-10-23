@@ -49,8 +49,6 @@ public class CameraController : MonoBehaviour
 
         halfHeight = cam.orthographicSize;
         halfWidth = halfHeight * Screen.width / Screen.height;
-
-
     }
 
     // Update is called once per frame
@@ -58,7 +56,8 @@ public class CameraController : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
 
-        //this allows players to look ahead of the map
+        //this allows players to look ahead of the map, when either of the shift key is pressed
+        // if it is not pressed, the camera follows the player.
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
         {
             followPlayer = false;
@@ -68,6 +67,7 @@ public class CameraController : MonoBehaviour
         {
             followPlayer = true;
         }
+
         if(followPlayer == true)
         {
             camFollowPlayer();
@@ -89,12 +89,34 @@ public class CameraController : MonoBehaviour
         followPlayer = val;
     }
 
+    /*
+     * camFollowPlayer()
+     * ----------------
+     * This function is responsible for following the player around the map, giving the user a control and 
+     * a clear vision of the map
+     * 
+     * No Parameters
+     * 
+     * Returns nothing
+     */
+
     void camFollowPlayer()
     {
         Vector3 newPos = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
         transform.position = newPos;
     }
 
+    /*
+     * aheadControl()
+     * ----------------
+     * The function is responsible for the ability/control of the game
+     * Wherein when the player press the "Left-Shift" key, it has the ability 
+     * to look ahead of the map with the cursor acting as a form of direction.
+     * 
+     * No Parameters
+     * 
+     * Returns nothing
+     */
     void aheadControl()
     {
         //allows the camera to move

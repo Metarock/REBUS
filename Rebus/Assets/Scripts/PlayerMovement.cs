@@ -163,8 +163,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void resetPlayer()
     {
-        moveX = 0;
-        moveY = 0;
-        playerMoving = true;
+        myRigidbody.velocity = new Vector2(0 ,0);
+        
     }
 }

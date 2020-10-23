@@ -21,6 +21,7 @@ public class RespawnManager : MonoBehaviour
         //When respawning simply reposition the player to that init positions
         //FindObjectOfType<PlayerMovement>().resetPlayer();
         FindObjectOfType<PlayerHealthManager>().playerCurrentHealth = FindObjectOfType<PlayerHealthManager>().playerMaxHealth;
+        FindObjectOfType<PlayerMovement>().resetPlayer();
         FindObjectOfType<PlayerMovement>().transform.position = playerInitPosition;
     }
 }

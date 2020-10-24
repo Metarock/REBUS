@@ -49,6 +49,7 @@ public class UIManager : MonoBehaviour
         healthBar.value = playerHealth.playerCurrentHealth;
     }
 
+
     public void Resume()
     {
         Time.timeScale = 1f;

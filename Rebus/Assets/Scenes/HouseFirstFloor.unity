@@ -23291,6 +23291,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIArea
       objectReference: {fileID: 0}
+    - target: {fileID: 2954966205427397144, guid: 3c90c1f2fed18f34cb13c12b5b47fdf3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 2954966205427397148, guid: 3c90c1f2fed18f34cb13c12b5b47fdf3,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -310,6 +310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 2954966206977170033}
   playerHealth: {fileID: 0}
+  eliminatedMessage: {fileID: 8304080189474971644}
 --- !u!1 &2954966205789716309
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,4 +765,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aeb83637741dac49bd7c2c6328628cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageObject: {fileID: 8304080189474971644}

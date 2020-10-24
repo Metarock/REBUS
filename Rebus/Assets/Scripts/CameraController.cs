@@ -95,9 +95,9 @@ public class CameraController : MonoBehaviour
      * This function is responsible for following the player around the map, giving the user a control and 
      * a clear vision of the map
      * 
-     * No Parameters
+     * @params none
      * 
-     * Returns nothing
+     * @returns none
      */
 
     void camFollowPlayer()
@@ -113,9 +113,9 @@ public class CameraController : MonoBehaviour
      * Wherein when the player press the "Left-Shift" key, it has the ability 
      * to look ahead of the map with the cursor acting as a form of direction.
      * 
-     * No Parameters
+     * @params none
      * 
-     * Returns nothing
+     * @returns none
      */
     void aheadControl()
     {

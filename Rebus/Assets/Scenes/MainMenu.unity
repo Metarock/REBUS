@@ -4774,7 +4774,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &838201735
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5371,7 +5371,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1119594177
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7565,7 +7565,6 @@ MonoBehaviour:
     be infiltrating one of our fellow agent''s house. We think he''s a whistleblower
     and is leaking out classified information. Hack into his computer in his office
     so we can get the evidence we need to put him behind bars.
-
 
 
     Eliminate anyone

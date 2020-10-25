@@ -25,6 +25,5 @@ public class MessageIndicator : MonoBehaviour
         {
             this.GetComponent<Text>().enabled = true;
         }
-
     }
 }

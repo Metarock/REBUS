@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraController : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class CameraController : MonoBehaviour
     private Camera cam;
 
     //Camera boundary
-    public BoxCollider2D boundBox;
+    public GameObject boundBox;
     private Vector3 minBounds;
     private Vector3 maxBounds;
 
@@ -44,13 +45,14 @@ public class CameraController : MonoBehaviour
 
 
         //camera boundaries
-        minBounds = boundBox.bounds.min;
-        maxBounds = boundBox.bounds.max;
+
+        boundBox = GameObject.FindGameObjectWithTag("Bounds");
+
+        minBounds = boundBox.GetComponent<BoxCollider2D>().bounds.min;
+        maxBounds = boundBox.GetComponent<BoxCollider2D>().bounds.max;
 
         halfHeight = cam.orthographicSize;
         halfWidth = halfHeight * Screen.width / Screen.height;
-
-
     }
 
     // Update is called once per frame
@@ -58,7 +60,8 @@ public class CameraController : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
 
-        //this allows players to look ahead of the map
+        //this allows players to look ahead of the map, when either of the shift key is pressed
+        // if it is not pressed, the camera follows the player.
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
         {
             followPlayer = false;
@@ -68,7 +71,8 @@ public class CameraController : MonoBehaviour
         {
             followPlayer = true;
         }
-        if(followPlayer == true)
+
+        if (followPlayer == true)
         {
             camFollowPlayer();
         }
@@ -81,6 +85,20 @@ public class CameraController : MonoBehaviour
         float clampedX = Mathf.Clamp(transform.position.x, minBounds.x + halfWidth, maxBounds.x - halfWidth);
         float clampedY = Mathf.Clamp(transform.position.y, minBounds.y + halfWidth, maxBounds.y - halfHeight);
         transform.position = new Vector3(clampedX, clampedY, transform.position.z);
+
+        setCameraBounds();
+    }
+
+    //gets the bounds of the current scene the player is in to update the camera's current bounds
+    void setCameraBounds()
+    {
+        if(SceneManager.GetActiveScene().name != "MainMenu")
+        {
+            boundBox = GameObject.FindGameObjectWithTag("Bounds");
+
+            minBounds = boundBox.GetComponent<BoxCollider2D>().bounds.min;
+            maxBounds = boundBox.GetComponent<BoxCollider2D>().bounds.max;
+        }
     }
 
     //set playermovement as true after going ahead
@@ -89,12 +107,34 @@ public class CameraController : MonoBehaviour
         followPlayer = val;
     }
 
+    /*
+     * camFollowPlayer()
+     * ----------------
+     * This function is responsible for following the player around the map, giving the user a control and 
+     * a clear vision of the map
+     * 
+     * @params none
+     * 
+     * @returns none
+     */
+
     void camFollowPlayer()
     {
         Vector3 newPos = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
         transform.position = newPos;
     }
 
+    /*
+     * aheadControl()
+     * ----------------
+     * The function is responsible for the ability/control of the game
+     * Wherein when the player press the "Left-Shift" key, it has the ability 
+     * to look ahead of the map with the cursor acting as a form of direction.
+     * 
+     * @params none
+     * 
+     * @returns none
+     */
     void aheadControl()
     {
         //allows the camera to move

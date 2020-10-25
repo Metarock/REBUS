@@ -12334,13 +12334,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3793447624596474519, guid: 0c63e035ced8ea44582d35761bc26731,
+    - target: {fileID: 3020291170485038596, guid: 2ea51a3bad7ceb54ab7dfcf6c757d437,
         type: 3}
       propertyPath: m_Name
-      value: EventSystem
+      value: Enemy (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0c63e035ced8ea44582d35761bc26731, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 2ea51a3bad7ceb54ab7dfcf6c757d437, type: 3}
 --- !u!1 &934720729
 GameObject:
   m_ObjectHideFlags: 0

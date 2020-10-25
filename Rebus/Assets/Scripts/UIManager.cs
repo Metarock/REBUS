@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour
         {
             UIExists = true;
             DontDestroyOnLoad(transform.gameObject);
+            Debug.Log("Start!");
             eliminatedMessage.SetActive(false);
         }
         else
@@ -37,10 +38,12 @@ public class UIManager : MonoBehaviour
 
         // Checks the amount of enemies present in the scene
         enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        Debug.Log("Message: " + enemyCount);
 
         if (enemyCount <= 0)
         {
             eliminatedMessage.SetActive(true);
+            Debug.Log("True!");
         }
         else
         {

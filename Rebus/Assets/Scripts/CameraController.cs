@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class CameraController : MonoBehaviour
 {
@@ -14,7 +13,7 @@ public class CameraController : MonoBehaviour
     private Camera cam;
 
     //Camera boundary
-    public GameObject boundBox;
+    public BoxCollider2D boundBox;
     private Vector3 minBounds;
     private Vector3 maxBounds;
 
@@ -45,11 +44,8 @@ public class CameraController : MonoBehaviour
 
 
         //camera boundaries
-
-        boundBox = GameObject.FindGameObjectWithTag("Bounds");
-
-        minBounds = boundBox.GetComponent<BoxCollider2D>().bounds.min;
-        maxBounds = boundBox.GetComponent<BoxCollider2D>().bounds.max;
+        minBounds = boundBox.bounds.min;
+        maxBounds = boundBox.bounds.max;
 
         halfHeight = cam.orthographicSize;
         halfWidth = halfHeight * Screen.width / Screen.height;
@@ -72,7 +68,7 @@ public class CameraController : MonoBehaviour
             followPlayer = true;
         }
 
-        if (followPlayer == true)
+        if(followPlayer == true)
         {
             camFollowPlayer();
         }
@@ -85,20 +81,6 @@ public class CameraController : MonoBehaviour
         float clampedX = Mathf.Clamp(transform.position.x, minBounds.x + halfWidth, maxBounds.x - halfWidth);
         float clampedY = Mathf.Clamp(transform.position.y, minBounds.y + halfWidth, maxBounds.y - halfHeight);
         transform.position = new Vector3(clampedX, clampedY, transform.position.z);
-
-        setCameraBounds();
-    }
-
-    //gets the bounds of the current scene the player is in to update the camera's current bounds
-    void setCameraBounds()
-    {
-        if(SceneManager.GetActiveScene().name != "MainMenu")
-        {
-            boundBox = GameObject.FindGameObjectWithTag("Bounds");
-
-            minBounds = boundBox.GetComponent<BoxCollider2D>().bounds.min;
-            maxBounds = boundBox.GetComponent<BoxCollider2D>().bounds.max;
-        }
     }
 
     //set playermovement as true after going ahead

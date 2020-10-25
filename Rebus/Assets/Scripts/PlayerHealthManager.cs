@@ -33,9 +33,4 @@ public class PlayerHealthManager : MonoBehaviour
         playerCurrentHealth = playerMaxHealth;
     }
 
-    public void RestoreCurrentHealth()
-    {
-        playerCurrentHealth = playerMaxHealth;
-    }
-
 }

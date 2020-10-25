@@ -26,6 +26,9 @@ public class PlayerMovement : MonoBehaviour
 
     public float moveX;
     public float moveY;
+
+    //variable if player is alive
+    bool isDead = false; 
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         lastPosX = 0;
         lastPosY = 0;
 
-        transform.position = new Vector3(lastPosX, lastPosY, transform.position.z);
+        transform.position = new Vector3(lastPosX, lastPosY, 0);
 
         // For Loading a new Scene
         transform.position = startingPosition.initialValue;
@@ -102,47 +105,50 @@ public class PlayerMovement : MonoBehaviour
 
         movedir = new Vector2(moveX, moveY).normalized;
     }
+
+    /*
+    * movement()
+    * ----------------
+    * This function is responsible for player's movement and animation. 
+    * Unity has its default control setting as Horizontal and Vertical. Horizontal
+    * is triggered when keys "A, D, left & right arrow key" are pressed while Vertical 
+    * is triggered when keys "W, S, up & down array key"are pressed
+    * 
+    * No Parameters
+    * 
+    * Returns nothing
+    */
     void movement()
     {
         playerMoving = false;
-
-        float moveX = Input.GetAxis("Horizontal");
-        float moveY = Input.GetAxis("Vertical");
-
-        movedir = new Vector2(moveX, moveY).normalized;
-
 
         processInputs();
 
         //horizontal
         if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f)
         {
-            //transform.Translate(new Vector3(Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime, 0f, 0f));
             //collision
             myRigidbody.velocity = new Vector2(movedir.x * moveSpeed, movedir.y * moveSpeed);
             playerMoving = true;
             lastMove = new Vector2(Input.GetAxisRaw("Horizontal"), 0f);
-            // lastMove = (mouseScreenPosition - (Vector2)transform.position).normalized;
         }
         //vertical 
         else if (Input.GetAxisRaw("Vertical") > 0.5f || Input.GetAxisRaw("Vertical") < -0.5f)
-        {
-            //transform.Translate(new Vector3(0f, Input.GetAxisRaw("Vertical") * moveSpeed * Time.deltaTime,0f));
+        { 
             //collision
             myRigidbody.velocity = new Vector2(movedir.x * moveSpeed, movedir.y * moveSpeed);
             playerMoving = true;
             lastMove = new Vector2(0f, Input.GetAxisRaw("Vertical"));
-
-            //  lastMove = (mouseScreenPosition - (Vector2)transform.position).normalized;
         }
 
+        //collision
+        //This is to prevent the player from sliding upon getting hit by a player
         if (Input.GetAxisRaw("Horizontal") < 0.5f && Input.GetAxisRaw("Horizontal") > -0.5f)
         {
             myRigidbody.velocity = new Vector2(0f, myRigidbody.velocity.y);
         }
         if (Input.GetAxisRaw("Vertical") < 0.5f && Input.GetAxisRaw("Vertical") > -0.5f)
         {
-            //collision
             myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, 0f);
         }
 
@@ -161,5 +167,12 @@ public class PlayerMovement : MonoBehaviour
         {
             playerMoving = true;
         }
+    }
+
+    //Resets player upon dying.
+    public void resetPlayer()
+    {
+        myRigidbody.velocity = new Vector2(0 ,0);
+        
     }
 }

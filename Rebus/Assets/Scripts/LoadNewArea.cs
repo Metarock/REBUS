@@ -7,7 +7,7 @@ public class LoadNewArea : MonoBehaviour
 {
     public string sceneToLoad;
     //public Vector2 playerPosition;
-    public VectorValue playerStorage;
+    //public VectorValue playerStorage;
 
     void OnTriggerEnter2D(Collider2D other)
     {

@@ -18,7 +18,8 @@ public class PlayerHealthManager : MonoBehaviour
     {
         if(playerCurrentHealth <= 0)
         {
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
+            FindObjectOfType<RespawnManager>().Restart();
         }
     }
 
@@ -28,6 +29,11 @@ public class PlayerHealthManager : MonoBehaviour
     }
 
     public void SetMaxHealth()
+    {
+        playerCurrentHealth = playerMaxHealth;
+    }
+
+    public void RestoreCurrentHealth()
     {
         playerCurrentHealth = playerMaxHealth;
     }

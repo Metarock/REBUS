@@ -15466,6 +15466,11 @@ PrefabInstance:
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 844379862}
+    - target: {fileID: 2954966205427397123, guid: 3c90c1f2fed18f34cb13c12b5b47fdf3,
+        type: 3}
+      propertyPath: pauseUI
+      value: 
+      objectReference: {fileID: 823846349}
     - target: {fileID: 2954966205427397144, guid: 3c90c1f2fed18f34cb13c12b5b47fdf3,
         type: 3}
       propertyPath: m_Name
@@ -15586,8 +15591,39 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4257388381932977336, guid: 3c90c1f2fed18f34cb13c12b5b47fdf3,
+        type: 3}
+      propertyPath: m_Maskable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257388381932977337, guid: 3c90c1f2fed18f34cb13c12b5b47fdf3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1910660368}
+    - target: {fileID: 4257388381932977337, guid: 3c90c1f2fed18f34cb13c12b5b47fdf3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Resume
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257388382852926831, guid: 3c90c1f2fed18f34cb13c12b5b47fdf3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1910660368}
+    - target: {fileID: 4257388382852926831, guid: 3c90c1f2fed18f34cb13c12b5b47fdf3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMainMenu
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c90c1f2fed18f34cb13c12b5b47fdf3, type: 3}
+--- !u!1 &823846349 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4257388382130907169, guid: 3c90c1f2fed18f34cb13c12b5b47fdf3,
+    type: 3}
+  m_PrefabInstance: {fileID: 823846348}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &844379860
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27497,6 +27533,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1910660368 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2954966205427397123, guid: 3c90c1f2fed18f34cb13c12b5b47fdf3,
+    type: 3}
+  m_PrefabInstance: {fileID: 823846348}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fabdfbef9f42af0449f128b0a75bf121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1938832281
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MessageIndicator : MonoBehaviour
 {
     private int enemyCount;
+    Scene scene;
 
     // Start is called before the first frame update
     void Start()
@@ -20,8 +22,9 @@ public class MessageIndicator : MonoBehaviour
     {
         // Checks the amount of enemies present in the scene
         enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        scene = SceneManager.GetActiveScene();
 
-        if (enemyCount <= 0)
+        if (enemyCount <= 0 && scene.name != "MainMenu")
         {
             this.GetComponent<Text>().enabled = true;
         }

@@ -1,19 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class MessageIndicator : MonoBehaviour
+public class LevelEndArea : MonoBehaviour
 {
     private int enemyCount;
 
-    // Start is called before the first frame update
     void Start()
     {
         // Checks the amount of enemies present in the scene. At the start, it records it.
         enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
-        Debug.Log("Start!");
-        this.GetComponent<Text>().enabled = false;
     }
 
     // Update is called once per frame
@@ -21,13 +17,15 @@ public class MessageIndicator : MonoBehaviour
     {
         // Checks the amount of enemies present in the scene
         enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
-        Debug.Log("Message: " + enemyCount);
+    }
 
-        if (enemyCount <= 0)
+    //Function occurs when the player enters this collider.
+    void OnTriggerEnter2D(Collider2D theCollider)
+    {
+        // If Player Tag is recognized, then level end UI will appear.
+        if ((theCollider.CompareTag("Player") && !theCollider.isTrigger) && enemyCount == 1)
         {
-            this.GetComponent<Text>().enabled = true;
-            Debug.Log("True!");
+            LevelController.instance.LevelComplete();
         }
-
     }
 }

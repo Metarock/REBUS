@@ -23291,6 +23291,11 @@ PrefabInstance:
       propertyPath: pauseUI
       value: 
       objectReference: {fileID: 1244899274}
+    - target: {fileID: 2954966205427397123, guid: 3c90c1f2fed18f34cb13c12b5b47fdf3,
+        type: 3}
+      propertyPath: levelEndMessage
+      value: 
+      objectReference: {fileID: 1244899276}
     - target: {fileID: 2954966205427397144, guid: 3c90c1f2fed18f34cb13c12b5b47fdf3,
         type: 3}
       propertyPath: m_Name
@@ -23476,6 +23481,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fabdfbef9f42af0449f128b0a75bf121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1244899276 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7343802628369275343, guid: 3c90c1f2fed18f34cb13c12b5b47fdf3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1244899273}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1365223191
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23560,7 +23571,7 @@ PrefabInstance:
     - target: {fileID: 8445296297579345343, guid: 599f07986d0690949b0f0d2f70f6df2a,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 0.47473893
+      value: 0.474739
       objectReference: {fileID: 0}
     - target: {fileID: 8445296297579345343, guid: 599f07986d0690949b0f0d2f70f6df2a,
         type: 3}
@@ -25453,6 +25464,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 221762190}
     m_Modifications:
+    - target: {fileID: 8445296297579345343, guid: 599f07986d0690949b0f0d2f70f6df2a,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.014367288
+      objectReference: {fileID: 0}
     - target: {fileID: 8445296298380126434, guid: 599f07986d0690949b0f0d2f70f6df2a,
         type: 3}
       propertyPath: m_Name

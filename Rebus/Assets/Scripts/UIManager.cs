@@ -53,7 +53,13 @@ public class UIManager : MonoBehaviour
         healthBar.maxValue = playerHealth.playerMaxHealth;
         healthBar.value = playerHealth.playerCurrentHealth;
 
-        // Checks the amount of enemies present in the scene
+        EliminatedMessageCheck();
+    }
+
+
+    // Checks the amount of enemies present in the scene (FOR ELIMINATED MESSAGE)
+    void EliminatedMessageCheck()
+    {
         enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
 
         if (enemyCount <= 0)

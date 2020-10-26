@@ -89,7 +89,6 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 0f;
         pauseUI.SetActive(true);
         paused = true;
-
     }
 
     //Loads the main menu

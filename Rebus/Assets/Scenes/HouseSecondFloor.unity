@@ -17175,6 +17175,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelEndMessage: {fileID: 816258680}
+  nextSceneToLoad:
+    m_Handle: 3
 --- !u!4 &1874142645
 Transform:
   m_ObjectHideFlags: 0

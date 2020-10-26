@@ -195,7 +195,6 @@ MonoBehaviour:
   healthBar: {fileID: 2954966206977170033}
   playerHealth: {fileID: 0}
   eliminatedMessage: {fileID: 8304080189474971644}
-  levelEndMessage: {fileID: 7343802628369275343}
 --- !u!1 &2954966205789716309
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,32 +844,32 @@ PrefabInstance:
     - target: {fileID: 6426167667271015138, guid: 9b2a5a0370fe76f4c863294b33f17403,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 588
       objectReference: {fileID: 0}
     - target: {fileID: 6426167667271015138, guid: 9b2a5a0370fe76f4c863294b33f17403,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 340
       objectReference: {fileID: 0}
     - target: {fileID: 6426167667271015138, guid: 9b2a5a0370fe76f4c863294b33f17403,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6426167667271015138, guid: 9b2a5a0370fe76f4c863294b33f17403,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6426167667271015138, guid: 9b2a5a0370fe76f4c863294b33f17403,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6426167667271015138, guid: 9b2a5a0370fe76f4c863294b33f17403,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6426167667271015138, guid: 9b2a5a0370fe76f4c863294b33f17403,
         type: 3}

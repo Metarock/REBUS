@@ -13,8 +13,6 @@ public class LevelController : MonoBehaviour
     GameObject UIArea;
     GameObject playerCamera;
 
-    Scene nextSceneToLoad;
-
     int levelPassed;
     int sceneIndex;
 
@@ -69,7 +67,7 @@ public class LevelController : MonoBehaviour
     //Button Functions (Next Level and Exit)
     public void loadNextLevel()
     {
-        SceneManager.LoadScene(nextSceneToLoad.name);
+        SceneManager.LoadScene("OfficeBasement");
     }
 
     public void loadMainMenu()

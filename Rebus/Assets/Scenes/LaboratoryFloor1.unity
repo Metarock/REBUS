@@ -15239,7 +15239,7 @@ PrefabInstance:
     - target: {fileID: 172139701801677003, guid: 7fa50814015d1b046a12e5c3da6da281,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 172139701801677003, guid: 7fa50814015d1b046a12e5c3da6da281,
         type: 3}
@@ -15268,7 +15268,7 @@ PrefabInstance:
     - target: {fileID: 751838033782660829, guid: e8ae46cb0bd20264b8ab6473f1f2b9f8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.48
+      value: -9.02
       objectReference: {fileID: 0}
     - target: {fileID: 751838033782660829, guid: e8ae46cb0bd20264b8ab6473f1f2b9f8,
         type: 3}
@@ -15487,7 +15487,7 @@ GameObject:
   - component: {fileID: 783271771}
   m_Layer: 0
   m_Name: Bounds
-  m_TagString: Untagged
+  m_TagString: Bounds
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

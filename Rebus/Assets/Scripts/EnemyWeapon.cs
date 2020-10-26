@@ -14,7 +14,7 @@ public class EnemyWeapon : MonoBehaviour
 
 
     void Update()
-    {
+    { 
         enemy = FindObjectOfType<Enemy>();
         //Debug.Log(enemy.GetComponent<Enemy>().firePermit);
 
@@ -26,10 +26,6 @@ public class EnemyWeapon : MonoBehaviour
             // This prevents the player from spamming the semi-automatic gun. Shoots every 1.4 seconds.
             Invoke(nameof(ResetCooldown), 1.4f);
             cooldown = true;
-
-
-
-
         }
     }
 

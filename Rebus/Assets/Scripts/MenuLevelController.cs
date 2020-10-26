@@ -30,12 +30,10 @@ public class MenuLevelController : MonoBehaviour
             {
                 case 1:
                     officeLevel.interactable = true;
-                    Debug.Log("PlayerPrefs LevelPassed is now set to 1");
                     break;
                 case 2:
                     officeLevel.interactable = true;
                     laboratoryLevel.interactable = true;
-                    Debug.Log("PlayerPrefs LevelPassed is now set to 2");
                     break;
             }
         }
@@ -43,7 +41,6 @@ public class MenuLevelController : MonoBehaviour
         {
             PlayerPrefs.SetInt("LevelPassed", 0);
             levelPassed = PlayerPrefs.GetInt("LevelPassed");
-            Debug.Log("PlayerPrefs LevelPassed is now set to 0");
         }
 
         

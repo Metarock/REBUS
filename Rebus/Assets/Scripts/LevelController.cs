@@ -13,8 +13,12 @@ public class LevelController : MonoBehaviour
     GameObject UIArea;
     GameObject playerCamera;
 
+    public string nextLevelString;
+
     int levelPassed;
     int sceneIndex;
+
+    public int levelPassedNumber;
 
     private int enemyCount;
 
@@ -60,14 +64,14 @@ public class LevelController : MonoBehaviour
     //Allows the level complete UI to appear once the level has been completed.
     public void LevelComplete()
     {
-        PlayerPrefs.SetInt("LevelPassed", 1);
+        PlayerPrefs.SetInt("LevelPassed", levelPassedNumber);
         levelCompleteUI.gameObject.SetActive(true);
     }
 
     //Button Functions (Next Level and Exit)
     public void loadNextLevel()
     {
-        SceneManager.LoadScene("OfficeBasement");
+        SceneManager.LoadScene(nextLevelString);
     }
 
     public void loadMainMenu()

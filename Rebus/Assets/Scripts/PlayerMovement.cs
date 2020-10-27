@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         lastPosX = 0;
         lastPosY = 0;
 
-        transform.position = new Vector3(lastPosX, lastPosY, 0);
+        //transform.position = new Vector3(lastPosX, lastPosY, 0);
 
         // For Loading a new Scene
         transform.position = startingPosition.initialValue;
@@ -76,14 +76,6 @@ public class PlayerMovement : MonoBehaviour
 
         //check if player is idle
         movementCheck();
-    }
-
-    void OnDisable()
-    {
-        lastPosX = transform.position.x;
-        lastPosY = transform.position.y;
-
-        transform.position = new Vector3(lastPosX, lastPosY, transform.position.z);
     }
 
     //Set the position of the player (used in WeaponSwitching Script)

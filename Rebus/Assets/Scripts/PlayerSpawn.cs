@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerSpawn : MonoBehaviour
 {
-    private PlayerMovement thePlayer;
+    private GameObject thePlayer;
     private CameraController theCamera;
 
     void Start()
     {
         //finds an object in a world that has a PlayerController attached to it
-        thePlayer = FindObjectOfType<PlayerMovement>();
+        thePlayer = GameObject.Find("Player");
 
         //set the player's transform position as the same as the start point position.
         thePlayer.transform.position = transform.position;

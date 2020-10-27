@@ -32,8 +32,4 @@ public class RotateScript : MonoBehaviour
         transform.up = direction;
 
     }
-
-    //previous cursor 
-    // mousePos = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z - cam.transform.position.z));
-    // rid.transform.eulerAngles = new Vector3(0,0,Mathf.Atan2((mousePos.y-transform.position.y), (mousePos.x-transform.position.x)) * Mathf.Rad2Deg);
 }

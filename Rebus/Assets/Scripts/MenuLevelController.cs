@@ -42,8 +42,6 @@ public class MenuLevelController : MonoBehaviour
             PlayerPrefs.SetInt("LevelPassed", 0);
             levelPassed = PlayerPrefs.GetInt("LevelPassed");
         }
-
-        
     }
 
     //Reset player progress. This resets all levels and will lock all currently unlocked levels.

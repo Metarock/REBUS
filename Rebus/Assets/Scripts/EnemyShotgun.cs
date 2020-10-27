@@ -22,8 +22,8 @@ public class EnemyShotgun : MonoBehaviour
 
     void Start()
     {
+    
     }
-
     void Update()
     {
         enemy = FindObjectOfType<Enemy>();
@@ -33,8 +33,6 @@ public class EnemyShotgun : MonoBehaviour
             Shoot();
             Invoke(nameof(ResetCooldown), 1.4f);
             cooldown = true;
-
-
         }
     }
 

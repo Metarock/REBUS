@@ -20,4 +20,4 @@ Contributition is only limited within the development team
 The project development team consist of Elijah Nucum, Sam Yu, Jemual Collado and John Sangalang
 
 ## Project Status 
-The project is currently not in its final version but rather in Beta. In the future, we are looking forward improving the gamestyle and possibly implementing multiplayer.
+Currently, the project is not in its final version but is in a stable beta version.

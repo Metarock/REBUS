@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4160309436234297533}
   - component: {fileID: 4014621045874759790}
   - component: {fileID: 7723701790446274231}
-  - component: {fileID: 7093168847910435476}
+  - component: {fileID: 6151411151056706265}
   m_Layer: 0
   m_Name: BossShotgunBullet
   m_TagString: Untagged
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageToPlayer: 20
---- !u!114 &7093168847910435476
+--- !u!114 &6151411151056706265
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7723701790446274230}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f6b433967a3d3b48b02558caed55b86, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f2f8b74acc44e34d8a12975e1f283f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 5888232297138605387, guid: eaaaf5e598f6dec478906b7016813287,

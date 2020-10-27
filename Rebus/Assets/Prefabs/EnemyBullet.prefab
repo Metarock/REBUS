@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5110678106519208441}
   - component: {fileID: 3866395863933270999}
   - component: {fileID: 4297170152171459332}
-  - component: {fileID: 7961148709187236350}
   - component: {fileID: 1691213967312175015}
+  - component: {fileID: 4315763164848460055}
   m_Layer: 0
   m_Name: EnemyBullet
   m_TagString: Untagged
@@ -133,20 +133,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.27079296, y: 0.30633736}
   m_EdgeRadius: 0
---- !u!114 &7961148709187236350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7432144677708631516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f6b433967a3d3b48b02558caed55b86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitEffect: {fileID: 5888232297138605387, guid: eaaaf5e598f6dec478906b7016813287,
-    type: 3}
 --- !u!114 &1691213967312175015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,3 +146,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageToPlayer: 10
+--- !u!114 &4315763164848460055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7432144677708631516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f2f8b74acc44e34d8a12975e1f283f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitEffect: {fileID: 5888232297138605387, guid: eaaaf5e598f6dec478906b7016813287,
+    type: 3}

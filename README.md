@@ -1,13 +1,23 @@
-# REBUS
-2D RPG development game
-24/9/20
+# Project Name
+REBUS
 
-Assests that were updated
+## Description
+REBUS is an 2D top down shooter game for only PCs. The player plays a character, an agent, that goes through various levels defeating enemies
 
-Enemy object:
-- Fixed an issue when the game is played, the camera follows the enemy characters as well. 
 
-THINGS TO BE ADDED/NOTED:
-- Enemy script needs to have a collision code so that enemy doesn't bug into the map walls.
-- More enemy sprite to help differentiate enemy and player 
-- More testing units
+## Usage
+The controls of the game are simple. To navigate around the map, simply use the WASD keys along with the mouse to provide the direction. 
+
+In order to fire, the player may use the left-click mouse and scroll-wheel to switch weapons. 
+
+The project also has basic respawn and pause function, which can be triggered by pressing the "esc" key. Additionally, players may adjust background and sound effects via the main menu
+
+## Contributing 
+Contributition is only limited within the development team 
+
+## Authors and Acknowledgement 
+
+The project development team consist of Elijah Nucum, Sam Yu, Jemual Collado and John Sangalang
+
+## Project Status 
+The project is currently not in its final version but rather in Beta. In the future, we are looking forward improving the gamestyle and possibly implementing multiplayer.

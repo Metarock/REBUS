@@ -22,7 +22,7 @@ public class EnemyAuto : MonoBehaviour
         if (cooldown == false && enemy.GetComponent<Enemy>().firePermit == true)
         {
             shoot();
-            Invoke(nameof(ResetCoolDown), 0.5f);
+            Invoke(nameof(ResetCoolDown), 0.35f);
             cooldown = true;
         }
     }

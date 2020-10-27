@@ -36,7 +36,7 @@ public class LevelController : MonoBehaviour
 
         player = GameObject.Find("Player");
         UIArea = GameObject.Find("UIArea");
-        playerCamera = GameObject.Find("MainCamera");
+        playerCamera = GameObject.Find("Main Camera");
 
         levelCompleteUI = GameObject.Find("LevelCompleteUI");
         levelCompleteUI.gameObject.SetActive(false);
@@ -68,17 +68,19 @@ public class LevelController : MonoBehaviour
         levelCompleteUI.gameObject.SetActive(true);
     }
 
-    //Button Functions (Next Level and Exit)
+    //Button Function to load the next level (the next level is determined by the String variable nextLevelString)
     public void loadNextLevel()
     {
+        FindObjectOfType<PlayerHealthManager>().playerCurrentHealth = FindObjectOfType<PlayerHealthManager>().playerMaxHealth;
+
         SceneManager.LoadScene(nextLevelString);
     }
 
+    //Button Function to load the main menu scene.
     public void loadMainMenu()
     {
-        //Destroy(UIArea);
-        //Destroy(player);
-        //Destroy(camera);
+        FindObjectOfType<PlayerHealthManager>().playerCurrentHealth = FindObjectOfType<PlayerHealthManager>().playerMaxHealth;
+
         SceneManager.LoadScene("MainMenu");
     }
 

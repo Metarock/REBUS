@@ -77,7 +77,7 @@ MonoBehaviour:
   firePoint: {fileID: 870197066175035119}
   bulletPrefab: {fileID: 7432144677708631516, guid: 48fbad9fa457e5841b66e55f85261925,
     type: 3}
-  bulletForce: 10
+  bulletForce: 30
   enemy: {fileID: 0}
 --- !u!1 &3020291170485038596
 GameObject:

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WeaponShotgun : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class WeaponShotgun : MonoBehaviour
     // Added cooldown per shot to prevent spamming
     private bool cooldown = false;
 
+    Scene currentScene;
+
     void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
@@ -26,9 +29,11 @@ public class WeaponShotgun : MonoBehaviour
 
     void Update()
     {
+        currentScene = SceneManager.GetActiveScene();
+
         if (cooldown == false)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire1") && currentScene.name != "MainMenu")
             {
                 audioManager.shotgunShot.Play();
                 Shoot();

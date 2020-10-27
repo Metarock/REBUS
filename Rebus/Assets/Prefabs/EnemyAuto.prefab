@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1118768676349564222}
-  - component: {fileID: 1118768676349564217}
   - component: {fileID: 258153992033916295}
   m_Layer: 0
   m_Name: EnemyPistol
@@ -33,23 +32,6 @@ Transform:
   m_Father: {fileID: 2747792591930660457}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1118768676349564217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118768676349564223}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d89024e4645c7145bf457307a861cf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firePoint: {fileID: 1118768676916749165}
-  bulletPrefab: {fileID: 7432144677708631516, guid: 48fbad9fa457e5841b66e55f85261925,
-    type: 3}
-  bulletForce: 10
-  enemy: {fileID: 0}
 --- !u!114 &258153992033916295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,5 +267,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9daee7a704e62ac4381026298632ca67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMaxHealth: 100
+  enemyMaxHealth: 50
   enemyCurrentHealth: 0

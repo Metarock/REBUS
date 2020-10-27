@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WeaponSemi : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class WeaponSemi : MonoBehaviour
     // Cooldown per shot
     private bool cooldown = false;
 
+    Scene currentScene;
+
     void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
@@ -20,9 +23,11 @@ public class WeaponSemi : MonoBehaviour
 
     void Update()
     {
+        currentScene = SceneManager.GetActiveScene();
+
         if (cooldown == false)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire1") && currentScene.name != "MainMenu")
             {
                 audioManager.pistolShot.Play();
                 Shoot();

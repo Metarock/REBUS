@@ -299,7 +299,7 @@ MonoBehaviour:
   firePoint1: {fileID: 6781941878595150918}
   firePoint2: {fileID: 6781941878650065743}
   firePoint3: {fileID: 6781941879016126198}
-  bulletPrefab: {fileID: 2918742233573401251, guid: 1a38abba5b369fd43a20c32753359c4c,
+  bulletPrefab: {fileID: 7723701790446274230, guid: 85da1c51e28e30841a4fef4c476a9ea7,
     type: 3}
   bulletForce: 30
   enemy: {fileID: 0}

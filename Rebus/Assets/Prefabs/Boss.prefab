@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9daee7a704e62ac4381026298632ca67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMaxHealth: 100
+  enemyMaxHealth: 2500
   enemyCurrentHealth: 0
 --- !u!1 &6781941878595150919
 GameObject:
@@ -299,7 +299,7 @@ MonoBehaviour:
   firePoint1: {fileID: 6781941878595150918}
   firePoint2: {fileID: 6781941878650065743}
   firePoint3: {fileID: 6781941879016126198}
-  bulletPrefab: {fileID: 651132275466936977, guid: c28dee61fd7c7fc4dbf4282aabc085a4,
+  bulletPrefab: {fileID: 2918742233573401251, guid: 1a38abba5b369fd43a20c32753359c4c,
     type: 3}
   bulletForce: 30
   enemy: {fileID: 0}

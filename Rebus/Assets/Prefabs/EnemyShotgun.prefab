@@ -99,7 +99,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6398249891253049456}
-  - component: {fileID: 6398249891253049463}
   - component: {fileID: 6113823408237074624}
   m_Layer: 0
   m_Name: EnemyPistol
@@ -125,23 +124,6 @@ Transform:
   m_Father: {fileID: 8173912938924317479}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6398249891253049463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6398249891253049457}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d89024e4645c7145bf457307a861cf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firePoint: {fileID: 6398249890820091427}
-  bulletPrefab: {fileID: 7432144677708631516, guid: 48fbad9fa457e5841b66e55f85261925,
-    type: 3}
-  bulletForce: 10
-  enemy: {fileID: 0}
 --- !u!114 &6113823408237074624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,13 +133,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6398249891253049457}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 835f758589cd80d49971c3d890842231, type: 3}
+  m_Script: {fileID: 11500000, guid: bde87f3d13bce94428b3e72853c5a8a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint1: {fileID: 6398249890820091427}
   firePoint2: {fileID: 6113823407118960774}
   firePoint3: {fileID: 6113823408930698015}
-  bulletPrefab: {fileID: 7432144677708631516, guid: 48fbad9fa457e5841b66e55f85261925,
+  bulletPrefab: {fileID: 2918742233573401251, guid: 1a38abba5b369fd43a20c32753359c4c,
     type: 3}
   bulletForce: 30
   enemy: {fileID: 0}
